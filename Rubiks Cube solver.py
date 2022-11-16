@@ -1,48 +1,104 @@
 from select import KQ_NOTE_RENAME
 
 
+# kubus=[
+# ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
+# ["BY","O","GO","B","YO","R", "BR","G"],
+# ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+# ]
+
 kubus=[
-["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
-["BY","O","GO","B","YO","R", "BR","G"],
-["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+ 
 ]
 
-#doorloop kubus en kijk waar "OW" of "WO" zich bevindt
+def wisselChar(tekst, van, naar):
+	character = tekst[van]
+	temp = list(tekst) 
+	temp[naar] = character
+	tekst = "".join(temp)
+	return tekst
 
-
-
-
-for kubusLaag in range(0,2):
-	for indexPositieInLaag in range(0,7):
-		if kubusLaag==0 and indexPositieInLaag==1:
-			if kubus[kubusLaag, indexPositieInLaag]== "WO":
-				None
-			if kubus[kubusLaag, indexPositieInLaag]== "OW":
-				draaiF()
-				draaiUinv()
-				draaiF()
-				draaiU() #zet oranje weer voor
-
-def draaiUinv():
-	for indexPositieInLaag in range(0,7):
-		kubus[0,indexPositieInLaag]=kubus[0, (indexPositieInLaag-2) %7]
-
-def draaiU():
-	for indexPositieInLaag in range(0,7):
-		kubus[0,indexPositieInLaag]=kubus[0, (indexPositieInLaag+2) %7]
-
-def draaiF():
-	kubusCopy = kubus
-	# kubus[0,0]=kubusCopy[0,2]
+def draaiF(kubus):
+    #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
+	kubusCopy=kubus.copy()
+	# kubus[0,0]=kubus[0,2]
 	# 0 positie van de string op 1 komt
 	# 1 positie van de string op 2 komt
 	# 2 positie van de string op 0 komt
-	# is gelijk aan + 1 mod 3
-	kubus[0,0][0:0]=kubusCopy[0,2][2:2]
- 	kubus[0,0][1:1]=kubusCopy[0,2][0:0]
-  	kubus[0,0][2:2]=kubusCopy[0,2][1:1]
+	# is gelijk aan + 2 mod 3
+	b0=kubus[0][2][2]
+	b1=kubus[0][2][0]
+	b2=kubus[0][2][1]
+	kubusCopy[0][0]=b0+b1+b2
 
-	kubus[0,1]=kubusCopy[1,2]
+	b0=kubus[1][2][1]
+	b1=kubus[1][2][0]
+	kubusCopy[0][1]=b0+b1
+ 
+	b0=kubus[2][2][2]
+	b1=kubus[2][2][0]
+	b2=kubus[2][2][1]
+	kubusCopy[0][2]=b0+b1+b2
+	
+ 
+	kubusCopy[1][0]=kubus[0][1]
+ 
+	kubusCopy[1][1]=kubus[1][1]
+ 
+	kubusCopy[1][2]=kubus[2][1]
+ 
+	b0=kubus[0][0][2]
+	b1=kubus[0][0][0]
+	b2=kubus[0][0][1]
+	kubusCopy[2][0]=b0+b1+b2
+	
+	b0=kubus[1][0][1]
+	b1=kubus[1][0][0]
+	kubusCopy[2][1]=b0+b1
+ 
+	kubusCopy[2][2]=kubus[2][0]
+	
+	return kubusCopy
+
+#doorloop kubus en kijk waar "OW" of "WO" zich bevindt
+for kubusLaag in range(0,3):
+	for indexPositieInLaag in range(0,8):
+		print (kubus[kubusLaag][indexPositieInLaag])
+kubus=draaiF(kubus)
+print("***************************************************")
+for kubusLaag in range(0,3):
+	print('laag '+str(kubusLaag))
+	for indexPositieInLaag in range(0,8):
+		print (kubus[kubusLaag][indexPositieInLaag])
+
+
+
+# for kubusLaag in range(0,2):
+# 	for indexPositieInLaag in range(0,7):
+# 		if kubusLaag==0 and indexPositieInLaag==1:
+# 			if kubus[kubusLaag, indexPositieInLaag]== "WO":
+# 				None
+# 			if kubus[kubusLaag, indexPositieInLaag]== "OW":
+# 				draaiF()
+# 				draaiUinv()
+# 				draaiF()
+# 				draaiU() #zet oranje weer voor
+
+def draaiUinv():
+	for indexPositieInLaag in range(0,7):
+		kubus[0][indexPositieInLaag]=kubus[0,][(indexPositieInLaag-2) %7]
+
+def draaiU():
+	for indexPositieInLaag in range(0,7):
+		kubus[0][indexPositieInLaag]=kubus[0][(indexPositieInLaag+2) %7]
+
+	
+exit()
+ 
+
 				
 # vergelijk een plekje op de kubus met "OW" of "WO" (kubuslaag, 
 # indexPositieInLaag )
