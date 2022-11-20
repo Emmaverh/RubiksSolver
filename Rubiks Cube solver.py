@@ -23,9 +23,12 @@ def wisselChar(tekst, van, naar):
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
-	# want alleen de blokjes die beinvloedt worden door de draai, wijzignen. De andere blokjes blijft 
-	# hetzelfde als de oorspronkelijke kubus.
-	kubusCopy=kubus.copy()
+	# want alleen de blokjes die beinvloedt worden door de draai, moeten wijzigen. De andere blokjes moeten 
+	# hetzelfde blijven als de oorspronkelijke kubus.
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
 # 	# een lege rij van rijen is handig om te zien dat sommige blokjes niet wijzgen:
 # 	kubusCopy=[
 # ["old","old","old","old","old","old","old","old"],
