@@ -85,7 +85,6 @@ print("")
 kubus=draaiF(kubus)
 kubus=draaiF(kubus)
 kubus=draaiF(kubus)
-kubus=draaiF(kubus)
 
 print("***************************************************")
 for kubusLaag in range(0,3):
