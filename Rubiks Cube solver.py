@@ -28,9 +28,9 @@ def draaiF(kubus):
 	kubusCopy=kubus.copy()
 # 	# een lege rij van rijen is handig om te zien dat sommige blokjes niet wijzgen:
 # 	kubusCopy=[
-# ["","","","","","","",""],
-# ["","","","","","" ,"",""],
-# ["","","","","","","",""]
+# ["old","old","old","old","old","old","old","old"],
+# ["old","old","old","old","old","old" ,"old","old"],
+# ["old","old","old","old","old","old","old","old"]
 # ]
 	# kubus[0,0]=kubus[0,2]
 	# 0 positie van de string op 1 komt
@@ -79,6 +79,9 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
+kubus=draaiF(kubus)
+kubus=draaiF(kubus)
+kubus=draaiF(kubus)
 kubus=draaiF(kubus)
 
 print("***************************************************")
