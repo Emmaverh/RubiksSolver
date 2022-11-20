@@ -7,11 +7,11 @@ from select import KQ_NOTE_RENAME
 # ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
 # ]
 
+# begin toestand van een kubus
 kubus=[
 ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
- 
 ]
 
 def wisselChar(tekst, van, naar):
@@ -23,7 +23,15 @@ def wisselChar(tekst, van, naar):
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
+	# want alleen de blokjes die beinvloedt worden door de draai, wijzignen. De andere blokjes blijft 
+	# hetzelfde als de oorspronkelijke kubus.
 	kubusCopy=kubus.copy()
+# 	# een lege rij van rijen is handig om te zien dat sommige blokjes niet wijzgen:
+# 	kubusCopy=[
+# ["","","","","","","",""],
+# ["","","","","","" ,"",""],
+# ["","","","","","","",""]
+# ]
 	# kubus[0,0]=kubus[0,2]
 	# 0 positie van de string op 1 komt
 	# 1 positie van de string op 2 komt
@@ -65,14 +73,21 @@ def draaiF(kubus):
 
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
-	for indexPositieInLaag in range(0,8):
-		print (kubus[kubusLaag][indexPositieInLaag])
-kubus=draaiF(kubus)
-print("***************************************************")
-for kubusLaag in range(0,3):
+	print("")
 	print('laag '+str(kubusLaag))
 	for indexPositieInLaag in range(0,8):
-		print (kubus[kubusLaag][indexPositieInLaag])
+		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
+print("")
+
+kubus=draaiF(kubus)
+
+print("***************************************************")
+for kubusLaag in range(0,3):
+	print("")
+	print('laag '+str(kubusLaag))
+	for indexPositieInLaag in range(0,8):
+		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
+print("")
 
 
 
