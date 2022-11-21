@@ -158,6 +158,104 @@ def draaiB(kubus):
 	
 	return kubusCopy
 
+def draaiR(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	b0=kubus[0][0][2]
+	b1=kubus[0][0][0]
+	b2=kubus[0][0][1]
+	kubusCopy[0][6]=b0+b1+b2
+
+	b0=kubus[1][0][1]
+	b1=kubus[1][0][0]
+	kubusCopy[0][7]=b0+b1
+ 
+	kubusCopy[0][0]=kubus[2][0]
+	
+	kubusCopy[1][6]=kubus[0][7]
+	
+	kubusCopy[1][7]=kubus[1][7]
+
+	kubusCopy[1][0]=kubus[2][7]
+
+	kubusCopy[2][6]=kubus[0][6]
+	
+	b0=kubus[1][6][1]
+	b1=kubus[1][6][0]
+	kubusCopy[2][7]=b0+b1	
+	
+	b0=kubus[2][6][1]
+	b1=kubus[2][6][2]
+	b2=kubus[2][6][0]
+	kubusCopy[2][0]=b0+b1+b2
+	
+	return kubusCopy
+
+def draaiD(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	b0=kubus[2][6][2]
+	b1=kubus[2][6][0]
+	b2=kubus[2][6][1]
+	kubusCopy[2][0]=b0+b1+b2
+
+	kubusCopy[2][1]=kubus[2][7]
+ 
+	b0=kubus[2][0][1]
+	b1=kubus[2][0][2]
+	b2=kubus[2][0][0]
+	kubusCopy[2][2]=b0+b1+b2
+	
+	kubusCopy[2][3]=kubus[2][1]
+	
+	kubusCopy[2][4]=kubus[2][2]
+
+	kubusCopy[2][5]=kubus[2][3]
+
+	kubusCopy[2][6]=kubus[2][4]
+	
+	kubusCopy[2][7]=kubus[2][5]
+	
+	return kubusCopy
+
+
+def draaiU(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	kubusCopy[0][0]=kubus[0][6]
+
+	kubusCopy[0][1]=kubus[0][7]
+ 
+	kubusCopy[0][2]=kubus[0][0]
+	
+	kubusCopy[0][3]=kubus[0][1]
+	
+	kubusCopy[0][4]=kubus[0][2]
+
+	kubusCopy[0][5]=kubus[0][3]
+
+	kubusCopy[0][6]=kubus[0][4]
+	
+	kubusCopy[0][7]=kubus[0][5]
+	
+	return kubusCopy
+
+
 
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
@@ -167,9 +265,13 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-kubus=draaiB(kubus)
 kubus=draaiF(kubus)
 kubus=draaiL(kubus)
+kubus=draaiB(kubus)
+kubus=draaiR(kubus)
+kubus=draaiU(kubus)
+kubus=draaiD(kubus)
+
 
 
 
