@@ -402,6 +402,39 @@ def draaiD(kubus):
 	return kubusCopy
 
 
+def draaiDinv(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	b0=kubus[2][2][2]
+	b1=kubus[2][2][0]
+	b2=kubus[2][2][1]
+	kubusCopy[2][0]=b0+b1+b2
+
+	kubusCopy[2][1]=kubus[2][3]
+ 
+	kubusCopy[2][2]=kubus[2][4]
+	
+	kubusCopy[2][3]=kubus[2][5]
+	
+	kubusCopy[2][4]=kubus[2][6]
+
+	kubusCopy[2][5]=kubus[2][7]
+
+	b0=kubus[2][0][1]
+	b1=kubus[2][0][2]
+	b2=kubus[2][0][0]
+	kubusCopy[2][6]=b0+b1+b2
+	
+	kubusCopy[2][7]=kubus[2][1]
+	
+	return kubusCopy
+
+
 def draaiU(kubus):
     
 
@@ -464,10 +497,19 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
+kubus=draaiF(kubus)
+kubus=draaiFinv(kubus)
+kubus=draaiL(kubus)
+kubus=draaiLinv(kubus)
+kubus=draaiB(kubus)
+kubus=draaiBinv(kubus)
+kubus=draaiR(kubus)
+kubus=draaiRinv(kubus)
+kubus=draaiU(kubus)
 kubus=draaiUinv(kubus)
-kubus=draaiUinv(kubus)
-kubus=draaiUinv(kubus)
-kubus=draaiUinv(kubus)
+kubus=draaiD(kubus)
+kubus=draaiDinv(kubus)
+
 
 
 
