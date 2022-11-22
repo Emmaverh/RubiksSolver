@@ -247,6 +247,50 @@ def draaiB(kubus):
 	
 	return kubusCopy
 
+def draaiBinv(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	b0=kubus[0][6][2]
+	b1=kubus[0][6][0]
+	b2=kubus[0][6][1]
+	kubusCopy[0][4]=b0+b1+b2
+
+	b0=kubus[1][6][1]
+	b1=kubus[1][6][0]
+	kubusCopy[0][5]=b0+b1
+ 
+	b0=kubus[2][6][2]
+	b1=kubus[2][6][0]
+	b2=kubus[2][6][1]
+	kubusCopy[0][6]=b0+b1+b2
+	
+	kubusCopy[1][4]=kubus[0][5]
+	
+ 
+	kubusCopy[1][5]=kubus[1][5]
+
+	kubusCopy[1][6]=kubus[2][5]
+
+	kubusCopy[2][4]=kubus[0][4]
+	
+	b0=kubus[1][4][1]
+	b1=kubus[1][4][0]
+	kubusCopy[2][5]=b0+b1
+ 
+	b0=kubus[2][4][2]
+	b1=kubus[2][4][0]
+	b2=kubus[2][4][1]
+	kubusCopy[2][6]=b0+b1+b2
+	
+	return kubusCopy
+
+
+
 def draaiR(kubus):
     
 
@@ -284,6 +328,46 @@ def draaiR(kubus):
 	kubusCopy[2][0]=b0+b1+b2
 	
 	return kubusCopy
+
+
+def draaiRinv(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	kubusCopy[0][6]=kubus[2][6]
+ 
+	kubusCopy[0][7]=kubus[1][6]
+ 
+	b0=kubus[0][6][1]
+	b1=kubus[0][6][2]
+	b2=kubus[0][6][0]
+	kubusCopy[0][0]=b0+b1+b2
+	
+	b0=kubus[2][7][1]
+	b1=kubus[2][7][0]
+	kubusCopy[1][6]=b0+b1	
+	
+	kubusCopy[1][7]=kubus[1][7]
+
+	b0=kubus[0][7][1]
+	b1=kubus[0][7][0]
+	kubusCopy[1][0]=b0+b1	
+
+	b0=kubus[2][0][2]
+	b1=kubus[2][0][0]
+	b2=kubus[2][0][1]
+	kubusCopy[2][6]=b0+b1+b2
+	
+	kubusCopy[2][7]=kubus[1][0]
+	
+	kubusCopy[2][0]=kubus[0][0]
+	
+	return kubusCopy
+
 
 def draaiD(kubus):
     
@@ -344,6 +428,32 @@ def draaiU(kubus):
 	
 	return kubusCopy
 
+def draaiUinv(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	kubusCopy[0][0]=kubus[0][2]
+
+	kubusCopy[0][1]=kubus[0][3]
+ 
+	kubusCopy[0][2]=kubus[0][4]
+	
+	kubusCopy[0][3]=kubus[0][5]
+	
+	kubusCopy[0][4]=kubus[0][6]
+
+	kubusCopy[0][5]=kubus[0][7]
+
+	kubusCopy[0][6]=kubus[0][0]
+	
+	kubusCopy[0][7]=kubus[0][1]
+	
+	return kubusCopy
+
 
 
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
@@ -354,11 +464,10 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-kubus=draaiLinv(kubus)
-kubus=draaiLinv(kubus)
-kubus=draaiLinv(kubus)
-kubus=draaiLinv(kubus)
-
+kubus=draaiUinv(kubus)
+kubus=draaiUinv(kubus)
+kubus=draaiUinv(kubus)
+kubus=draaiUinv(kubus)
 
 
 
