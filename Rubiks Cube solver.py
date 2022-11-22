@@ -74,6 +74,50 @@ def draaiF(kubus):
 	
 	return kubusCopy
 
+
+def draaiFinv(kubus):
+
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+	b0=kubus[2][0][1]
+	b1=kubus[2][0][2]
+	b2=kubus[2][0][0]
+	kubusCopy[0][0]=b0+b1+b2
+
+	kubusCopy[0][1]=kubus[1][0]
+ 
+	b0=kubus[0][0][1]
+	b1=kubus[0][0][2]
+	b2=kubus[0][0][0]
+	kubusCopy[0][2]=b0+b1+b2
+	
+	b0=kubus[2][1][1]
+	b1=kubus[2][1][0]
+	kubusCopy[1][0]=b0+b1
+ 
+	kubusCopy[1][1]=kubus[1][1]
+ 
+	b0=kubus[0][1][1]
+	b1=kubus[0][1][0]
+	kubusCopy[1][2]=b0+b1
+ 
+	kubusCopy[2][0]=kubus[2][2]
+	
+	kubusCopy[2][1]=kubus[1][2]
+ 
+	b0=kubus[0][2][1]
+	b1=kubus[0][2][2]
+	b2=kubus[0][2][0]
+	kubusCopy[2][2]=b0+b1+b2
+	
+	return kubusCopy
+
+
+
+
 def draaiL(kubus):
     
 
@@ -115,6 +159,51 @@ def draaiL(kubus):
 	kubusCopy[2][4]=b0+b1+b2
 	
 	return kubusCopy
+
+
+
+def draaiLinv(kubus):
+    
+
+	# see https://stackoverflow.com/a/6533065
+	# kubusCopy=kubus.deepcopy()
+	kubusCopy = [row[:] for row in kubus]
+
+
+	kubusCopy[0][2]=kubus[2][2]
+
+	kubusCopy[0][3]=kubus[1][2]
+ 
+	b0=kubus[0][2][1]
+	b1=kubus[0][2][2]
+	b2=kubus[0][2][0]
+	kubusCopy[0][4]=b0+b1+b2
+	
+	b0=kubus[2][3][1]
+	b1=kubus[2][3][0]
+	kubusCopy[1][2]=b0+b1
+ 
+	kubusCopy[1][3]=kubus[1][3]
+ 
+	b0=kubus[0][3][1]
+	b1=kubus[0][3][0]
+	kubusCopy[1][4]=b0+b1
+ 
+	b0=kubus[2][4][1]
+	b1=kubus[2][4][2]
+	b2=kubus[2][4][0]
+	kubusCopy[2][2]=b0+b1+b2
+	
+	kubusCopy[2][3]=kubus[1][4]
+ 
+	b0=kubus[0][4][1]
+	b1=kubus[0][4][2]
+	b2=kubus[0][4][0]
+	kubusCopy[2][4]=b0+b1+b2
+	
+	return kubusCopy
+
+
 
 def draaiB(kubus):
     
@@ -265,12 +354,9 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-kubus=draaiF(kubus)
-kubus=draaiL(kubus)
-kubus=draaiB(kubus)
-kubus=draaiR(kubus)
-kubus=draaiU(kubus)
-kubus=draaiD(kubus)
+kubus=draaiLinv(kubus)
+
+
 
 
 
