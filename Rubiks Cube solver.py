@@ -355,6 +355,9 @@ for kubusLaag in range(0,3):
 print("")
 
 kubus=draaiLinv(kubus)
+kubus=draaiLinv(kubus)
+kubus=draaiLinv(kubus)
+kubus=draaiLinv(kubus)
 
 
 
