@@ -536,16 +536,10 @@ print("")
 # 				draaiF()
 # 				draaiU() #zet oranje weer voor
 
-def draaiUinv():
-	for indexPositieInLaag in range(0,7):
-		kubus[0][indexPositieInLaag]=kubus[0,][(indexPositieInLaag-2) %7]
 
-def draaiU():
-	for indexPositieInLaag in range(0,7):
-		kubus[0][indexPositieInLaag]=kubus[0][(indexPositieInLaag+2) %7]
 
 	
-exit()
+
  
 
 				
