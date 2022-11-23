@@ -563,3 +563,39 @@ print("")
 # U’:  #kubus upper vlak 1 slag tegen de klok in draaien
 	# for indexPositieInLaag  = 0 to 7:
 	# kubus[1,indexPositieInLaag ]=kubus[0,(indexPositieInLaag-2) modulo 7]
+
+
+
+def test_draaiU():
+        # begin toestand van een kubus
+    kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+    assert draaiU(kubus) != [
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+def test_draaiU_2():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	expected = [
+["WRG","WG","WGO","WO","WOB","WB","WBR","WR"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	result = draaiU(kubus)
+
+	gelijk = result[0][0] == expected[0][0]	
+	gelijk = gelijk and (result[0][1] == expected[0][1])
+	gelijk = gelijk and (result[0][2] == expected[0][2])
+	# test andere blokjes ook
+
+	assert gelijk
