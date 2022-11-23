@@ -593,9 +593,13 @@ def test_draaiU_2():
 ]
 	result = draaiU(kubus)
 
-	gelijk = result[0][0] == expected[0][0]	
-	gelijk = gelijk and (result[0][1] == expected[0][1])
-	gelijk = gelijk and (result[0][2] == expected[0][2])
+	assert controleer_kubus(result, expected)
+
+
+def controleer_kubus(kubus1, kubus2):
+	gelijk = kubus1[0][0] == kubus2[0][0]	
+	gelijk = gelijk and (kubus1[0][1] == kubus2[0][1])
+	gelijk = gelijk and (kubus1[0][2] == kubus2[0][2])
 	# test andere blokjes ook
 
-	assert gelijk
+	return gelijk
