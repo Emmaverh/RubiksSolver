@@ -1,6 +1,3 @@
-from select import KQ_NOTE_RENAME
-
-
 # kubus=[
 # ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
 # ["BY","O","GO","B","YO","R", "BR","G"],
@@ -603,3 +600,81 @@ def controleer_kubus(kubus1, kubus2):
 	# test andere blokjes ook
 
 	return gelijk
+
+
+def eerste_laag_oplossen(kubus):
+	# bovenste vlak oplossen: wit kruis maken
+	#zoek oranje wit (of WO) blokje
+	gevonden=False
+	for kubusLaag in range(0,3):
+		print("")
+		print('laag '+str(kubusLaag))
+		for indexPositieInLaag in range(0,8):
+			print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
+			# if kubus[kubusLaag][indexPositieInLaag] == "OW":
+			# 	gevonden=True
+			if kubus[kubusLaag][indexPositieInLaag] == "WO":
+				gevonden=True
+			if gevonden:
+				break
+		if gevonden:
+			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			if kubusLaag==0 and indexPositieInLaag==1:
+				break
+			if kubusLaag==0 and indexPositieInLaag==3:
+				kubus=draaiUinv(kubus)
+				break
+			if kubusLaag==0 and indexPositieInLaag==5:
+				kubus=draaiUinv(kubus)
+				kubus=draaiUinv(kubus)
+				break
+			if kubusLaag==0 and indexPositieInLaag==7:
+				kubus=draaiU(kubus)
+				break
+			if kubusLaag==1 and indexPositieInLaag==0:
+				kubus=draaiFinv(kubus)
+				break
+	return gevonden
+	# print("opgelost")
+
+
+def test_opgelost_als_WO_op_juiste_plek():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert eerste_laag_oplossen(kubus)
+
+def test_opgelost_als_WO_op_onjuiste_plek():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","OW","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert not eerste_laag_oplossen(kubus)
+
+def test_opgelost_als_WO_op_plek03():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WB","WOB","WO","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert eerste_laag_oplossen(kubus)
+
+def test_opgelost_als_WO_niet_op_plek03():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WB","WOB","WR","WBR","WO","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert eerste_laag_oplossen(kubus)
+
