@@ -6,7 +6,7 @@
 
 # begin toestand van een kubus
 kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["WOB","WB","WBR","WR","WRG","WG","WGO","WO"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 ]
@@ -494,18 +494,7 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-kubus=draaiF(kubus)
-kubus=draaiFinv(kubus)
-kubus=draaiL(kubus)
-kubus=draaiLinv(kubus)
-kubus=draaiB(kubus)
-kubus=draaiBinv(kubus)
-kubus=draaiR(kubus)
-kubus=draaiRinv(kubus)
-kubus=draaiU(kubus)
-kubus=draaiUinv(kubus)
-kubus=draaiD(kubus)
-kubus=draaiDinv(kubus)
+
 
 
 
