@@ -6,7 +6,7 @@
 
 # begin toestand van een kubus
 kubus=[
-["WOB","WB","WBR","WR","WRG","WG","WGO","WO"],
+["WBR","WR","WRG","WG","WGO","WO","WOB","WB"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 ]
@@ -486,7 +486,7 @@ def draaiUinv(kubus):
 
 
 
-#doorloop kubus en kijk waar "OW" of "WO" zich bevindt
+doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
 	print("")
 	print('laag '+str(kubusLaag))
@@ -619,6 +619,7 @@ def eerste_laag_oplossen(kubus):
 				break
 			if kubusLaag==0 and indexPositieInLaag==7:
 				kubus=draaiU(kubus)
+				print("draai het bovenste vlak met de klok mee")
 				break
 			if kubusLaag==1 and indexPositieInLaag==0:
 				kubus=draaiFinv(kubus)
@@ -656,6 +657,9 @@ def eerste_laag_oplossen(kubus):
 				break
 	return gevonden
 	# print("opgelost")
+
+
+
 
 
 def test_opgelost_als_WO_op_juiste_plek():
