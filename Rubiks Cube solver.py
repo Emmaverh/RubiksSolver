@@ -634,6 +634,37 @@ def eerste_laag_oplossen(kubus):
 			if kubusLaag==1 and indexPositieInLaag==0:
 				kubus=draaiFinv(kubus)
 				break
+			if kubusLaag==1 and indexPositieInLaag==2:
+				kubus=draaiF(kubus)
+				break
+			if kubusLaag==1 and indexPositieInLaag==4:
+				kubus=draaiU(kubus)
+				kubus=draaiB(kubus)
+				break
+			if kubusLaag==1 and indexPositieInLaag==6:
+				kubus=draaiUinv(kubus)
+				kubus=draaiRinv(kubus)
+				break
+			if kubusLaag==2 and indexPositieInLaag==1:
+				kubus=draaiFinv(kubus)
+				kubus=draaiFinv(kubus)
+				break
+			if kubusLaag==2 and indexPositieInLaag==3:
+				kubus=draaiDinv(kubus)
+				kubus=draaiF(kubus)
+				kubus=draaiF(kubus)
+				break
+			if kubusLaag==2 and indexPositieInLaag==5:
+				kubus=draaiD(kubus)
+				kubus=draaiD(kubus)
+				kubus=draaiF(kubus)
+				kubus=draaiF(kubus)
+				break
+			if kubusLaag==2 and indexPositieInLaag==7:
+				kubus=draaiD(kubus)
+				kubus=draaiF(kubus)
+				kubus=draaiF(kubus)
+				break
 	return gevonden
 	# print("opgelost")
 
@@ -671,10 +702,10 @@ def test_opgelost_als_WO_op_plek03():
 def test_opgelost_als_WO_niet_op_plek03():
         # begin toestand van een kubus
 	kubus=[
-["WGO","WB","WOB","WR","WBR","WO","WRG","WG"],
+["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 ]
 
-	assert eerste_laag_oplossen(kubus)
+	assert not eerste_laag_oplossen(kubus)
 
