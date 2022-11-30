@@ -485,8 +485,77 @@ def draaiUinv(kubus):
 	return kubusCopy
 
 
+def eerste_laag_oplossen(kubusFormalParameter):
+	# bovenste vlak oplossen: wit kruis maken
+	#zoek oranje wit (of WO) blokje
+	gevonden=False
+	for kubusLaag in range(0,3):
+		print("")
+		print('laag '+str(kubusLaag))
+		for indexPositieInLaag in range(0,8):
+			print (kubusFormalParameter[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
+			# if kubus[kubusLaag][indexPositieInLaag] == "OW":
+			# 	gevonden=True
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WO":
+				gevonden=True
+			if gevonden:
+				break
+		if gevonden:
+			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			if kubusLaag==0 and indexPositieInLaag==1:
+				break
+			if kubusLaag==0 and indexPositieInLaag==3:
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				break
+			if kubusLaag==0 and indexPositieInLaag==5:
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("draai 2 keer het bovenste vlak tegen de klok in")
+				break
+			if kubusLaag==0 and indexPositieInLaag==7:
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("draai het bovenste vlak met de klok mee")
+				break
+			if kubusLaag==1 and indexPositieInLaag==0:
+				kubusFormalParameter=draaiFinv(kubusFormalParameter)
+				break
+			if kubusLaag==1 and indexPositieInLaag==2:
+				kubus=draaiF(kubusFormalParameter)
+				break
+			if kubusLaag==1 and indexPositieInLaag==4:
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiB(kubusFormalParameter)
+				break
+			if kubusLaag==1 and indexPositieInLaag==6:
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				break
+			if kubusLaag==2 and indexPositieInLaag==1:
+				kubusFormalParameter=draaiFinv(kubusFormalParameter)
+				kubusFormalParameter=draaiFinv(kubusFormalParameter)
+				break
+			if kubusLaag==2 and indexPositieInLaag==3:
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				break
+			if kubusLaag==2 and indexPositieInLaag==5:
+				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				break
+			if kubusLaag==2 and indexPositieInLaag==7:
+				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				break
+	return kubusFormalParameter
+	# print("opgelost")
 
-doorloop kubus en kijk waar "OW" of "WO" zich bevindt
+
+
+#doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
 	print("")
 	print('laag '+str(kubusLaag))
@@ -496,8 +565,7 @@ print("")
 
 
 
-
-
+kubus=eerste_laag_oplossen(kubus)
 
 
 
@@ -589,74 +657,6 @@ def controleer_kubus(kubus1, kubus2):
 	# test andere blokjes ook
 
 	return gelijk
-
-
-def eerste_laag_oplossen(kubus):
-	# bovenste vlak oplossen: wit kruis maken
-	#zoek oranje wit (of WO) blokje
-	gevonden=False
-	for kubusLaag in range(0,3):
-		print("")
-		print('laag '+str(kubusLaag))
-		for indexPositieInLaag in range(0,8):
-			print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
-			# if kubus[kubusLaag][indexPositieInLaag] == "OW":
-			# 	gevonden=True
-			if kubus[kubusLaag][indexPositieInLaag] == "WO":
-				gevonden=True
-			if gevonden:
-				break
-		if gevonden:
-			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
-			if kubusLaag==0 and indexPositieInLaag==1:
-				break
-			if kubusLaag==0 and indexPositieInLaag==3:
-				kubus=draaiUinv(kubus)
-				break
-			if kubusLaag==0 and indexPositieInLaag==5:
-				kubus=draaiUinv(kubus)
-				kubus=draaiUinv(kubus)
-				break
-			if kubusLaag==0 and indexPositieInLaag==7:
-				kubus=draaiU(kubus)
-				print("draai het bovenste vlak met de klok mee")
-				break
-			if kubusLaag==1 and indexPositieInLaag==0:
-				kubus=draaiFinv(kubus)
-				break
-			if kubusLaag==1 and indexPositieInLaag==2:
-				kubus=draaiF(kubus)
-				break
-			if kubusLaag==1 and indexPositieInLaag==4:
-				kubus=draaiU(kubus)
-				kubus=draaiB(kubus)
-				break
-			if kubusLaag==1 and indexPositieInLaag==6:
-				kubus=draaiUinv(kubus)
-				kubus=draaiRinv(kubus)
-				break
-			if kubusLaag==2 and indexPositieInLaag==1:
-				kubus=draaiFinv(kubus)
-				kubus=draaiFinv(kubus)
-				break
-			if kubusLaag==2 and indexPositieInLaag==3:
-				kubus=draaiDinv(kubus)
-				kubus=draaiF(kubus)
-				kubus=draaiF(kubus)
-				break
-			if kubusLaag==2 and indexPositieInLaag==5:
-				kubus=draaiD(kubus)
-				kubus=draaiD(kubus)
-				kubus=draaiF(kubus)
-				kubus=draaiF(kubus)
-				break
-			if kubusLaag==2 and indexPositieInLaag==7:
-				kubus=draaiD(kubus)
-				kubus=draaiF(kubus)
-				kubus=draaiF(kubus)
-				break
-	return gevonden
-	# print("opgelost")
 
 
 
