@@ -489,6 +489,7 @@ def eerste_laag_oplossen(kubusFormalParameter):
 	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
 	gevonden=False
+	kaasje=False
 	for kubusLaag in range(0,3):
 		print("")
 		print('laag '+str(kubusLaag))
@@ -499,6 +500,10 @@ def eerste_laag_oplossen(kubusFormalParameter):
 			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WO":
 				gevonden=True
 			if gevonden:
+				break
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "OW":
+				kaasje=True
+			if kaasje:
 				break
 		if gevonden:
 			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
@@ -554,8 +559,8 @@ def eerste_laag_oplossen(kubusFormalParameter):
 				gevonden=True
 			if gevonden:
 				break
-			if gevonden:
-				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+		if kaasje:
+			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
