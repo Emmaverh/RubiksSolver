@@ -6,7 +6,7 @@
 
 # begin toestand van een kubus
 kubus=[
-["YBO","OW","YOG","WR","WBR","WB","WRG","WG"],
+["YBO","WB","YOG","OW","WBR","WR","WRG","WG"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OBW","GR","OWG","BY","BYR","RY","RYG","GY"]	
 ]
@@ -71,7 +71,6 @@ def draaiF(kubus):
 	
 	return kubusCopy
 
-
 def draaiFinv(kubus):
 
 
@@ -111,9 +110,6 @@ def draaiFinv(kubus):
 	kubusCopy[2][2]=b0+b1+b2
 	
 	return kubusCopy
-
-
-
 
 def draaiL(kubus):
     
@@ -157,8 +153,6 @@ def draaiL(kubus):
 	
 	return kubusCopy
 
-
-
 def draaiLinv(kubus):
     
 
@@ -199,8 +193,6 @@ def draaiLinv(kubus):
 	kubusCopy[2][4]=b0+b1+b2
 	
 	return kubusCopy
-
-
 
 def draaiB(kubus):
     
@@ -286,8 +278,6 @@ def draaiBinv(kubus):
 	
 	return kubusCopy
 
-
-
 def draaiR(kubus):
     
 
@@ -325,7 +315,6 @@ def draaiR(kubus):
 	kubusCopy[2][0]=b0+b1+b2
 	
 	return kubusCopy
-
 
 def draaiRinv(kubus):
     
@@ -365,7 +354,6 @@ def draaiRinv(kubus):
 	
 	return kubusCopy
 
-
 def draaiD(kubus):
     
 
@@ -398,7 +386,6 @@ def draaiD(kubus):
 	
 	return kubusCopy
 
-
 def draaiDinv(kubus):
     
 
@@ -430,7 +417,6 @@ def draaiDinv(kubus):
 	kubusCopy[2][7]=kubus[2][1]
 	
 	return kubusCopy
-
 
 def draaiU(kubus):
     
@@ -484,13 +470,11 @@ def draaiUinv(kubus):
 	
 	return kubusCopy
 
-
 def eerste_laag_oplossen(kubusFormalParameter):
 	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
-	gevonden=False
-	kaasje=False
-	appel=False
+	WOgevonden=False
+	OWgevonden=False
 	for kubusLaag in range(0,3):
 		print("")
 		print('laag '+str(kubusLaag))
@@ -499,21 +483,16 @@ def eerste_laag_oplossen(kubusFormalParameter):
 			# if kubus[kubusLaag][indexPositieInLaag] == "OW":
 			# 	gevonden=True
 			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WO":
-				gevonden=True
-			if gevonden:
+				WOgevonden=True
 				break
 			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "OW":
-				kaasje=True
-			if kaasje:
+				OWgevonden=True
 				break
-			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WB":
-				appel=True
-			if appel:
-				break
-		if gevonden:
-			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+		if WOgevonden:
+			print("WO gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
-				break
+				print("WO op de juiste plek") 
+				break 
 			if kubusLaag==0 and indexPositieInLaag==3:
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				print("1. draai het bovenste vlak tegen de klok in")
@@ -582,8 +561,8 @@ def eerste_laag_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				print("1. draai het onderste vlak met de klok mee 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				break
-		if kaasje:
-			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+		if OWgevonden:
+			print("OW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
@@ -663,8 +642,30 @@ def eerste_laag_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				print("1. draai het onderste vlak met de klok mee 2. draai het voor vlak 2x met de klok mee.")
 				break
-		if appel:
-			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+	return WB_of_BW_oplossen(kubusFormalParameter)
+	# print("opgelost")
+
+
+def WB_of_BW_oplossen(kubusFormalParameter):
+    	# bovenste vlak oplossen: wit kruis maken
+	#zoek oranje wit (of WO) blokje
+	WBgevonden=False
+	BWgevonden=False
+	for kubusLaag in range(0,3):
+		print("")
+		print('laag '+str(kubusLaag))
+		for indexPositieInLaag in range(0,8):
+			print (kubusFormalParameter[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
+			# if kubus[kubusLaag][indexPositieInLaag] == "OW":
+			# 	gevonden=True
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WB":
+				WBgevonden=True
+				break
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "BW":
+				BWgevonden=True
+				break
+		if WBgevonden:
+			print("WB gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				print("1. draai het bovenste vlak met de klok mee")
@@ -679,13 +680,9 @@ def eerste_laag_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				print("1. draai het bovenste vlak 2x tegen de klok in")
-				
-				
+				break
 	return kubusFormalParameter
-	# print("opgelost")
-
-
-
+    	
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
 	print("")
