@@ -6,7 +6,7 @@
 
 # begin toestand van een kubus
 kubus=[
-["YBO","OW","YOG","WB","WBR","WR","WRG","WG"],
+["YBO","OW","YOG","WR","WBR","WB","WRG","WG"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OBW","GR","OWG","BY","BYR","RY","RYG","GY"]	
 ]
@@ -490,6 +490,7 @@ def eerste_laag_oplossen(kubusFormalParameter):
 	#zoek oranje wit (of WO) blokje
 	gevonden=False
 	kaasje=False
+	appel=False
 	for kubusLaag in range(0,3):
 		print("")
 		print('laag '+str(kubusLaag))
@@ -505,24 +506,30 @@ def eerste_laag_oplossen(kubusFormalParameter):
 				kaasje=True
 			if kaasje:
 				break
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WB":
+				appel=True
+			if appel:
+				break
 		if gevonden:
 			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				break
 			if kubusLaag==0 and indexPositieInLaag==3:
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==0 and indexPositieInLaag==5:
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				print("draai 2 keer het bovenste vlak tegen de klok in")
+				print("1. draai 2 keer het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==0 and indexPositieInLaag==7:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
-				print("draai het bovenste vlak met de klok mee")
+				print("1. draai het bovenste vlak met de klok mee")
 				break
 			if kubusLaag==1 and indexPositieInLaag==0:
-				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiFinv(kubusFormalParameter)
+				print("1. draai het voorste vlak tegen de klok in")
 				break
 			if kubusLaag==1 and indexPositieInLaag==2:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
@@ -533,30 +540,47 @@ def eerste_laag_oplossen(kubusFormalParameter):
 			if kubusLaag==1 and indexPositieInLaag==4:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				kubusFormalParameter=draaiB(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het voorste vlak met de klok mee 2. draai het achterste vlak met de klok mee 3. draai het bovenste vlak 2x met de klok mee")
 				break
 			if kubusLaag==1 and indexPositieInLaag==6:
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het voorste vlak tegen de klok in 2. draai het rechter vlak tegen de klok in 3. draai het bovenste vlak met de klok mee")
 				break
 			if kubusLaag==2 and indexPositieInLaag==1:
-				kubusFormalParameter=draaiFinv(kubusFormalParameter)
-				kubusFormalParameter=draaiFinv(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het voorste vlak met de klok mee 2. draai het bovenste vlak met de klok mee 3. draai het linker vlak tegen de klok in 4. draai het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==2 and indexPositieInLaag==3:
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				kubusFormalParameter=draaiF(kubusFormalParameter)
-				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het onderste vlak tegen de klok in 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==2 and indexPositieInLaag==5:
-				kubusFormalParameter=draaiD(kubusFormalParameter)
-				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				kubusFormalParameter=draaiF(kubusFormalParameter)
-				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het onderste vlak 2x tegen de klok in 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==2 and indexPositieInLaag==7:
 				kubusFormalParameter=draaiD(kubusFormalParameter)
 				kubusFormalParameter=draaiF(kubusFormalParameter)
-				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het onderste vlak met de klok mee 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				break
 		if kaasje:
 			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
@@ -639,7 +663,24 @@ def eerste_laag_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				print("1. draai het onderste vlak met de klok mee 2. draai het voor vlak 2x met de klok mee.")
 				break
-			
+		if appel:
+			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			if kubusLaag==0 and indexPositieInLaag==1:
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het bovenste vlak met de klok mee")
+				break
+			if kubusLaag==0 and indexPositieInLaag==3:
+				break
+			if kubusLaag==0 and indexPositieInLaag==5:
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het bovenste vlak tegen de klok in")
+				break
+			if kubusLaag==0 and indexPositieInLaag==7:
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het bovenste vlak 2x tegen de klok in")
+				
+				
 	return kubusFormalParameter
 	# print("opgelost")
 
