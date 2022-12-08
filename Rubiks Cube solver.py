@@ -6,9 +6,9 @@
 
 # begin toestand van een kubus
 kubus=[
-["OBW","RY","GYO","BR","GWR","BO","BOY","YO"],
-["RG","O","OG","B","BW","R","OW","G"],
-["RBY","BY","GOW","YG","YGR","RW","RWB","GW"]	
+["BYR","YR","GOW","YG","WOB","OG","YOG","RB"],
+["GR","O","OW","B","OB","R","WR","G"],
+["YBO","BW","GWR","OY","WBR","GW","RYG","BY"]	
 ]
 
 def wisselChar(tekst, van, naar):
@@ -1135,6 +1135,25 @@ def WG_of_GW_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				print("1. draai het bovenste vlak tegen de klok in. 2. draai het achterste vlak tegen de klok in 3. draai het bovenste vlak met de klok mee.")
+				break
+			if kubusLaag==2 and indexPositieInLaag==1:
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				print("1. draai het onderste vlak tegen de klok in 2. draai het rechter vlak 2x tegen de klok in.")
+				break
+			if kubusLaag==2 and indexPositieInLaag==3:
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				print("1. draai het onderste vlak 2x tegen de klok in 2. draai het rechter vlak 2x tegen de klok in.")
+				break
+			if kubusLaag==2 and indexPositieInLaag==5:
+				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				print("1. draai het onderste vlak met de klok mee 2. draai het rechter vlak 2x tegen de klok in.")
 				break
 			if kubusLaag==2 and indexPositieInLaag==7:
 				kubusFormalParameter=draaiRinv(kubusFormalParameter)
