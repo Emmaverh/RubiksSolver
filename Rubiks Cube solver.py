@@ -6,9 +6,9 @@
 
 # begin toestand van een kubus
 kubus=[
-["BYR","YR","GOW","YG","WOB","OG","YOG","RB"],
-["GR","O","OW","B","OB","R","WR","G"],
-["YBO","BW","GWR","OY","WBR","GW","RYG","BY"]	
+["OYB","WO","GOW","WB","WBR","WR","BYR","WG"],
+["YR","O","BO","B","BY","R","GR","G"],
+["GRY","BR","OBW","GY","GWR","OG","OGY","OY"]	
 ]
 
 def wisselChar(tekst, van, naar):
@@ -1160,8 +1160,8 @@ def WG_of_GW_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiRinv(kubusFormalParameter)
 				print("1. draai het rechter vlak 2x tegen de klok in.")
 				break
+	return WGO_GOW_OWG_oplossen(kubusFormalParameter)
 
-	return kubusFormalParameter
 
 def WGO_GOW_OWG_oplossen(kubusFormalParameter):		
 	WGOgevonden=False
@@ -1181,30 +1181,33 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "OWG":
 				OWGgevonden=True
 				break
-		if kubusLaag==0 and indexPositieInLaag==0:
-			if WGOgevonden: 
+		if WGOgevonden:
+			if kubusLaag==0 and indexPositieInLaag==0: 
 				print ("WGO", end = ' ')  # print on same line
 				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 				print("WGO staat al goed")
 				break 
 
-			if GOWgevonden or OWGgevonden:
+		if GOWgevonden or OWGgevonden:
 				if GOWgevonden: print ("GOW", end = ' ')  # print on same line
 				if OWGgevonden: print ("OWG", end = ' ')  # print on same line
 				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
-				kubusFormalParameter=draaiFinv(kubusFormalParameter)
-				kubusFormalParameter=draaiDinv(kubusFormalParameter)
-				kubusFormalParameter=draaiF(kubusFormalParameter)
-				kubusFormalParameter=draaiDinv(kubusFormalParameter)
-				print("")
-				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
-					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
-					kubusFormalParameter=draaiD(kubusFormalParameter)
-					if kubusFormalParameter[0][0] == "WGO":
-						break 
-				break
+				if kubusLaag==0 and indexPositieInLaag==0: 
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
+					kubusFormalParameter=draaiDinv(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
+					kubusFormalParameter=draaiDinv(kubusFormalParameter)
+					print("aa")
+					while True:
+						print(kubusFormalParameter[0][0])
+						kubusFormalParameter=draaiRinv(kubusFormalParameter)
+						kubusFormalParameter=draaiD(kubusFormalParameter)
+						kubusFormalParameter=draaiR(kubusFormalParameter)
+						kubusFormalParameter=draaiD(kubusFormalParameter)
+						print("lol")
+						if kubusFormalParameter[0][0] == "WGO":
+							break 
+					break
 		else:
 			if WGOgevonden or GOWgevonden or OWGgevonden:
 				if WGOgevonden: print ("WGO", end = ' ')  # print on same line
@@ -1216,15 +1219,17 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
 					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("")
+					print("aa")
 					while True:
 						kubusFormalParameter=draaiRinv(kubusFormalParameter)
 						kubusFormalParameter=draaiD(kubusFormalParameter)
 						kubusFormalParameter=draaiR(kubusFormalParameter)
 						kubusFormalParameter=draaiD(kubusFormalParameter)
+						print("ll")
 						if kubusFormalParameter[0][0] == "WGO":
 							break 
 					break
+	return kubusFormalParameter
  
  
  
