@@ -470,7 +470,7 @@ def draaiUinv(kubus):
 	
 	return kubusCopy
 
-def eerste_laag_oplossen(kubusFormalParameter):
+def kubus_oplossen(kubusFormalParameter):
 	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
 	WOgevonden=False
@@ -1162,8 +1162,74 @@ def WG_of_GW_oplossen(kubusFormalParameter):
 				break
 
 	return kubusFormalParameter
-			
-      
+
+def WGO_GOW_OWG_oplossen(kubusFormalParameter):		
+	WGOgevonden=False
+	GOWgevonden=False
+	OWGgevonden=False
+	for kubusLaag in range(0,3):
+		print("")
+		print('laag '+str(kubusLaag))
+		for indexPositieInLaag in range(0,8):
+			print (kubusFormalParameter[kubusLaag][indexPositieInLaag], end = ' ') 
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "WGO":
+				WGOgevonden=True
+				break
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "GOW":
+				GOWgevonden=True
+				break
+			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "OWG":
+				OWGgevonden=True
+				break
+		if kubusLaag==0 and indexPositieInLaag==0:
+			if WGOgevonden: 
+				print ("WGO", end = ' ')  # print on same line
+				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+				print("WGO staat al goed")
+				break 
+
+			if GOWgevonden or OWGgevonden:
+				if GOWgevonden: print ("GOW", end = ' ')  # print on same line
+				if OWGgevonden: print ("OWG", end = ' ')  # print on same line
+				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+				kubusFormalParameter=draaiFinv(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiF(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				print("")
+				while True:
+					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiD(kubusFormalParameter)
+					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiD(kubusFormalParameter)
+					if kubusFormalParameter[0][0] == "WGO":
+						break 
+				break
+		else:
+			if WGOgevonden or GOWgevonden or OWGgevonden:
+				if WGOgevonden: print ("WGO", end = ' ')  # print on same line
+				if GOWgevonden: print ("GOW", end = ' ')  # print on same line
+				if OWGgevonden: print ("OWG", end = ' ')  # print on same line
+				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+				if kubusLaag==0 and indexPositieInLaag==2:
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
+					kubusFormalParameter=draaiDinv(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
+					kubusFormalParameter=draaiDinv(kubusFormalParameter)
+					print("")
+					while True:
+						kubusFormalParameter=draaiRinv(kubusFormalParameter)
+						kubusFormalParameter=draaiD(kubusFormalParameter)
+						kubusFormalParameter=draaiR(kubusFormalParameter)
+						kubusFormalParameter=draaiD(kubusFormalParameter)
+						if kubusFormalParameter[0][0] == "WGO":
+							break 
+					break
+ 
+ 
+ 
+ 
+ 
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
 	print("")
@@ -1174,7 +1240,7 @@ print("")
 
 
 
-kubus=eerste_laag_oplossen(kubus)
+kubus=kubus_oplossen(kubus)
 
 
 
