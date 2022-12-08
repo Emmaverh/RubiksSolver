@@ -6,9 +6,9 @@
 
 # begin toestand van een kubus
 kubus=[
-["OGY","YR","YRB","BW","RGW","BR","YBO","GY"],
-["YB","O","RG","B","GO","R","OY","G"],
-["WBR","WG","GOW","OB","WOB","OW","GRY","WR"]	
+["OBW","RY","GYO","BR","GWR","BO","BOY","YO"],
+["RG","O","OG","B","BW","R","OW","G"],
+["RBY","BY","GOW","YG","YGR","RW","RWB","GW"]	
 ]
 
 def wisselChar(tekst, van, naar):
@@ -470,7 +470,7 @@ def draaiUinv(kubus):
 	
 	return kubusCopy
 
-def WO_of_OW_oplossen(kubusFormalParameter):
+def eerste_laag_oplossen(kubusFormalParameter):
 	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
 	WOgevonden=False
@@ -717,7 +717,7 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiD(kubusFormalParameter)
 				kubusFormalParameter=draaiB(kubusFormalParameter)
 				kubusFormalParameter=draaiL(kubusFormalParameter)
-				print("1. draai het onderste vlak 2x met de klok mee 2. draai het linker vlak met de klok mee 3. draai het achterste vlak met de klok mee 3. draai het bovenste vlak tegen de klok in")
+				print("1. draai het onderste vlak 2x met de klok mee 2. draai het achterste vlak met de klok mee 3. draai het linker vlak met de klok mee")
 				break
 			if kubusLaag==2 and indexPositieInLaag==3:
 				kubusFormalParameter=draaiD(kubusFormalParameter)
@@ -983,6 +983,7 @@ def WR_of_RW_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				print("1. draai het onderste vlak met de klok mee 2. draai het achterste vlak 2x tegen de klok in")
+				break
 			if kubusLaag==2 and indexPositieInLaag==5:
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
@@ -993,8 +994,8 @@ def WR_of_RW_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				print("1. draai het onderste vlak tegen de klok in 2. draai het achterste vlak 2x tegen de klok in")
-    
-	return kubusFormalParameter
+				break
+	return WG_of_GW_oplossen(kubusFormalParameter)
    
 def WG_of_GW_oplossen(kubusFormalParameter):
     	# bovenste vlak oplossen: wit kruis maken
@@ -1010,7 +1011,7 @@ def WG_of_GW_oplossen(kubusFormalParameter):
 				WGgevonden=True
 				break
 			if kubusFormalParameter[kubusLaag][indexPositieInLaag] == "GW":
-				Wgevonden=True
+				GWgevonden=True
 				break
 		if WGgevonden: 	
 			print("WG gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
@@ -1046,22 +1047,55 @@ def WG_of_GW_oplossen(kubusFormalParameter):
 				break
 			if kubusLaag==1 and indexPositieInLaag==4:
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				kubusFormalParameter=draaiBinv(kubusFormalParameter)
+				kubusFormalParameter=draaiB(kubusFormalParameter)
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				print("1. draai het bovenste vlak tegen de klok in 2. draai het achterste vlak tegen de klok in 3. draai het bovenste vlak met de klok mee.")
 				break
 			if kubusLaag==1 and indexPositieInLaag==6:
-				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
 				print("1. draai het linker vlak tegen de klok in")
 				break
 			if kubusLaag==2 and indexPositieInLaag==1:
-				kubusFormalParameter=draaiD(kubusFormalParameter)
-				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				kubusFormalParameter=draaiB(kubusFormalParameter)
+				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				kubusFormalParameter=draaiU(kubusFormalParameter)
-				print("1. draai het onderste vlak met de klok mee")
+				print("1. draai het onderste vlak tegen de klok in 2. draai het rechter vlak tegen de klok in 3. draai het bovenste vlak tegen de klok in. 4.draai het achterste vlak tegen de klok in. 5.draai het bovenste vlak met de klok mee.")
 				break
+			if kubusLaag==2 and indexPositieInLaag==3:
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				kubusFormalParameter=draaiBinv(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het onderste vlak 2x tegen de klok in 2. draai het rechter vlak tegen de klok in 3. draai het bovenste vlak tegen de klok in. 4.draai het achterste vlak tegen de klok in. 5.draai het bovenste vlak met de klok mee.")
+				break
+			if kubusLaag==2 and indexPositieInLaag==5:
+				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				kubusFormalParameter=draaiBinv(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het onderste vlak met de klok mee 2. draai het rechter vlak tegen de klok in 3. draai het bovenste vlak tegen de klok in. 4.draai het achterste vlak tegen de klok in. 5.draai het bovenste vlak met de klok mee.")
+				break
+			if kubusLaag==2 and indexPositieInLaag==7:
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				kubusFormalParameter=draaiBinv(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het rechter vlak tegen de klok in 2. draai het bovenste vlak tegen de klok in. 3.draai het achterste vlak tegen de klok in. 4.draai het bovenste vlak met de klok mee.")
+				break
+		if GWgevonden:
+			print("WG gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			if kubusLaag==2 and indexPositieInLaag==7:
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				print("1. draai het rechter vlak 2x tegen de klok in.")
+				break
+
+	return kubusFormalParameter
 			
       
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
