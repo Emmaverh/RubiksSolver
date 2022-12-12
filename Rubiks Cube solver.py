@@ -1199,7 +1199,7 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 						kubusFormalParameter=draaiD(kubusFormalParameter)
 						kubusFormalParameter=draaiR(kubusFormalParameter)
 						kubusFormalParameter=draaiDinv(kubusFormalParameter)
-						print("1. draai het rechter vlak tegen de klok in 2.")
+						print("1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 						if kubusFormalParameter[0][0] == "WGO":
 							break 
 					break
