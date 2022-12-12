@@ -1333,12 +1333,11 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==2: 
 				while True:
-					print(kubusFormalParameter[0][0])
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("I1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("I1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
@@ -1353,11 +1352,11 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiR(kubusFormalParameter)
 				print("1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee")
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("J1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("J1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
@@ -1368,11 +1367,11 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				print("1. draai het linker vlak tegen de klok in 2. draai het onderste vlak tegen de klok in 3. draai het linker vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("K1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("K1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
@@ -1383,11 +1382,11 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiLinv(kubusFormalParameter)
 				print("1. draai het linker vlak met de klok mee 2. draai het onderste vlak 2x met de klok mee 3. draai het linker vlak tegen de klok in.")
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("L1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("L1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
@@ -1395,21 +1394,21 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiD(kubusFormalParameter)
 				print("1. draai het onderste vlak met de klok mee.")
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("M1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("M1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
 			if kubusLaag==2 and indexPositieInLaag==2: 
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("N1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("N1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
@@ -1417,11 +1416,11 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				print("1. draai het onderste vlak tegen de klok in.")
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("O1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("O1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
@@ -1430,11 +1429,11 @@ def WOB_OBW_BWO_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiD(kubusFormalParameter)
 				print("1. draai het onderste vlak 2x met de klok mee.")
 				while True:
-					kubusFormalParameter=draaiRinv(kubusFormalParameter)
+					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
-					kubusFormalParameter=draaiR(kubusFormalParameter)
+					kubusFormalParameter=draaiF(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("P1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het rechter vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
+					print("P1. draai het voorste vlak tegen de klok in 2. draai het onderste vlak met de klok mee 3. draai het voorste vlak met de klok mee 4. draai het onderste vlak tegen de klok in. ")
 					if kubusFormalParameter[0][2] == "WOB":
 						break 
 				break
