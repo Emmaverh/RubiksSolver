@@ -6,9 +6,9 @@
 
 # begin toestand van een kubus
 kubus=[
-["OYB","WO","GOW","WB","WBR","WR","BYR","WG"],
-["YR","O","BO","B","BY","R","GR","G"],
-["GRY","BR","OBW","GY","GWR","OG","OGY","OY"]	
+["GOW","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GY","O","OB","B","BR","R","RG","G"],
+["GYO","OY","OYB","BY","RBY","GO","GRY","RY"]	
 ]
 
 def wisselChar(tekst, van, naar):
@@ -1193,17 +1193,12 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 				if OWGgevonden: print ("OWG", end = ' ')  # print on same line
 				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 				if kubusLaag==0 and indexPositieInLaag==0: 
-					kubusFormalParameter=draaiFinv(kubusFormalParameter)
-					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					kubusFormalParameter=draaiF(kubusFormalParameter)
-					kubusFormalParameter=draaiDinv(kubusFormalParameter)
-					print("aa")
 					while True:
 						print(kubusFormalParameter[0][0])
 						kubusFormalParameter=draaiRinv(kubusFormalParameter)
 						kubusFormalParameter=draaiD(kubusFormalParameter)
 						kubusFormalParameter=draaiR(kubusFormalParameter)
-						kubusFormalParameter=draaiD(kubusFormalParameter)
+						kubusFormalParameter=draaiDinv(kubusFormalParameter)
 						print("lol")
 						if kubusFormalParameter[0][0] == "WGO":
 							break 
@@ -1213,8 +1208,8 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 				if WGOgevonden: print ("WGO", end = ' ')  # print on same line
 				if GOWgevonden: print ("GOW", end = ' ')  # print on same line
 				if OWGgevonden: print ("OWG", end = ' ')  # print on same line
-				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
-				if kubusLaag==0 and indexPositieInLaag==2:
+				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))	
+				if kubusLaag==2 and indexPositieInLaag==0: 
 					kubusFormalParameter=draaiFinv(kubusFormalParameter)
 					kubusFormalParameter=draaiDinv(kubusFormalParameter)
 					kubusFormalParameter=draaiF(kubusFormalParameter)
@@ -1229,6 +1224,7 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 						if kubusFormalParameter[0][0] == "WGO":
 							break 
 					break
+ 
 	return kubusFormalParameter
  
  
