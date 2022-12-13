@@ -12,9 +12,9 @@
 #]
 
 kubus=[
-["OWG","WO","RWB","BY","BOY","OY","OBW","OB"],
-["GY","O","RW","B","WG","R","GO","G"],
-["GYO","RG","RYG","WB","BYR","YR","RGW","BR"]	
+["GRY","OW","BRW","RW","WRG","YR","OBW","GO"],
+["BW","O","GY","B","WG","R","BR","G"],
+["OWG","OY","YOG","YB","OYB","BO","YRG","RG"]	
 ]
 
 def wisselChar(tekst, van, naar):
