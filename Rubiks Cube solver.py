@@ -2286,7 +2286,7 @@ def RG_of_GR_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiR(kubusFormalParameter)
 				kubusFormalParameter=draaiD(kubusFormalParameter)
 				kubusFormalParameter=draaiRinv(kubusFormalParameter)	
-				print("BR staat al goed.")
+				print("BR staat al goed.") hier weet ik t ni meer
 				break
 			if kubusLaag==1 and indexPositieInLaag==6:
 				kubusFormalParameter=draaiR(kubusFormalParameter)
