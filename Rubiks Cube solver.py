@@ -24,9 +24,9 @@
 #]
 
 kubus=[
-["BOY","YO","RGW","GW","WBR","GY","YOG","BR"],
-["YB","O","BO","B","RW","R","RG","G"],
-["WOB","OG","OWG","WO","YGR","WB","YRB","RY"]	
+["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
+["RW","O","BY","B","YG","R","BW","G"],
+["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
 ]
 
 def wisselChar(tekst, van, naar):
@@ -1241,11 +1241,11 @@ def WGO_GOW_OWG_oplossen(kubusFormalParameter):
 						break 
 				break
 			if kubusLaag==0 and indexPositieInLaag==4: 
-				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiLinv(kubusFormalParameter)
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
-				kubusFormalParameter=draaiR(kubusFormalParameter)
-				print("1. draai het rechter vlak tegen de klok in 2. draai het onderste vlak 2x tegen de klok in 3. draai het rechter vlak met de klok mee.")
+				kubusFormalParameter=draaiL(kubusFormalParameter)
+				print("1. draai het linker vlak tegen de klok in 2. draai het onderste vlak 2x tegen de klok in 3. draai het linker vlak met de klok mee.")
 				while True:
 					kubusFormalParameter=draaiRinv(kubusFormalParameter)
 					kubusFormalParameter=draaiD(kubusFormalParameter)
