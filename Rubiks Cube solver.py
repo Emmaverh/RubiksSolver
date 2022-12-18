@@ -2720,7 +2720,7 @@ def GO_of_OG_oplossen(kubusFormalParameter):
 
 	return Geel_kruis_maken(kubusFormalParameter)
 
-
+#vanaf hier raar raar
 def Geel_kruis_maken(kubusFormalParameter):
 	if kubusFormalParameter[2][1][-1]=="Y" and kubusFormalParameter[2][3][-1]=="Y" and kubusFormalParameter[2][5][-1]=="Y" and kubusFormalParameter[2][7][-1]=="Y":
 		print("Het gele kruis is er al") 
