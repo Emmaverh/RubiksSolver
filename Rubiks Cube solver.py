@@ -29,10 +29,16 @@
 #["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
 #]
 
+#kubus=[
+#["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
+#["WB","O","GY","B","GR","R","GO","G"],
+#["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
+#]
+
 kubus=[
-["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
-["WB","O","GY","B","GR","R","GO","G"],
-["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
+["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+["BW","O","GY","B","OB","R","WG","G"],
+["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
 ]
 
 def wisselChar(tekst, van, naar):
