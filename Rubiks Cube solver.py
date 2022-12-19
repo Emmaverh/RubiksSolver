@@ -56,7 +56,7 @@
 kubus=[
 ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 ["YG","O","OB","B","BR","R","YB","G"],
-["YBO","RY","RYG","YG","BYR","YO","YOG","BY"]	
+["GYO","YO","BYR","RY","YOG","YB","RYG","GY"]	
 ]
 
 def wisselChar(tekst, van, naar):
@@ -2835,7 +2835,7 @@ def Geel_kruis_maken(kubusFormalParameter):
 	return Geel_kruis_goedzetten (kubusFormalParameter)
 
 def Geel_kruis_goedzetten (kubusFormalParameter):
-	print("we gaan nu het gele kruis goed zetten")
+	print("********** we gaan nu het gele kruis goed zetten: ")
 	if kubusFormalParameter[2][1][0]=="O" and kubusFormalParameter[2][3][0]=="B" and kubusFormalParameter[2][5][0]=="R" and kubusFormalParameter[2][7][0]=="G":
 		print("Het gele kruis staat al goed") 
 	if kubusFormalParameter[2][1][0]=="G" and kubusFormalParameter[2][3][0]=="B" and kubusFormalParameter[2][5][0]=="R" and kubusFormalParameter[2][7][0]=="O":
@@ -2990,10 +2990,143 @@ def Geel_kruis_goedzetten (kubusFormalParameter):
 		kubusFormalParameter=draaiDinv(kubusFormalParameter)
 		kubusFormalParameter=draaiRinv(kubusFormalParameter)
 		kubusFormalParameter=draaiDinv(kubusFormalParameter)
-		#hier nog niet klaar
-		print("1. draai het rechter vlak met de klok mee. 2. draai het onderste vlak tegen de klok in. 3. draai het linker vlak tegen de klok in. 4. draai het onderste vlak tegen de klok in. 5. draai het linker vlak met de klok mee. 6. draai het onderste vlak 2x tegen de klok in. 7. draai het linker vlak tegen de klok in.
+		print("1. draai het rechter vlak met de klok mee. 2. draai het onderste vlak tegen de klok in. 3. draai het rechter vlak tegen de klok in. 4. draai het onderste vlak tegen de klok in. 5. draai het rechter vlak met de klok mee. 6. draai het onderste vlak 2x tegen de klok in. 7. draai het rechter vlak tegen de klok in. 8. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="G" and kubusFormalParameter[2][3][0]=="O" and kubusFormalParameter[2][5][0]=="R" and kubusFormalParameter[2][7][0]=="B":
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiR(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiRinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiR(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiRinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak tegen de klok in. 2. draai het rechter vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het rechter vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het rechter vlak met de klok mee. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het rechter vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="B" and kubusFormalParameter[2][3][0]=="G" and kubusFormalParameter[2][5][0]=="O" and kubusFormalParameter[2][7][0]=="R":
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiR(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiRinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiR(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiRinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak 2x tegen de klok in. 2. draai het rechter vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het rechter vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het rechter vlak met de klok mee. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het rechter vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="R" and kubusFormalParameter[2][3][0]=="B" and kubusFormalParameter[2][5][0]=="G" and kubusFormalParameter[2][7][0]=="O":
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiR(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiRinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiR(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiRinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak met de klok mee. 2. draai het rechter vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het rechter vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het rechter vlak met de klok mee. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het rechter vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="O" and kubusFormalParameter[2][3][0]=="B" and kubusFormalParameter[2][5][0]=="G" and kubusFormalParameter[2][7][0]=="R":
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het voorste vlak met de klok mee. 2. draai het onderste vlak tegen de klok in. 3. draai het voorste vlak tegen de klok in. 4. draai het onderste vlak tegen de klok in. 5. draai het voorste vlak met de klok mee. 6. draai het onderste vlak 2x tegen de klok in. 7. draai het voorste vlak tegen de klok in. 8. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="R" and kubusFormalParameter[2][3][0]=="O" and kubusFormalParameter[2][5][0]=="B" and kubusFormalParameter[2][7][0]=="G":
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak tegen de klok in. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het voorste vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak met de klok mee. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het voorste vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="G" and kubusFormalParameter[2][3][0]=="R" and kubusFormalParameter[2][5][0]=="O" and kubusFormalParameter[2][7][0]=="B":
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak 2x tegen de klok in. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het voorste vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak met de klok mee. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het voorste vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="B" and kubusFormalParameter[2][3][0]=="G" and kubusFormalParameter[2][5][0]=="R" and kubusFormalParameter[2][7][0]=="O":
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak met de klok mee. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het voorste vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak met de klok mee. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het voorste vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="B" and kubusFormalParameter[2][3][0]=="O" and kubusFormalParameter[2][5][0]=="R" and kubusFormalParameter[2][7][0]=="G":
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het achterste vlak tegen de klok in. 2. draai het onderste vlak tegen de klok in. 3. draai het achterste vlak met de klok mee. 4. draai het onderste vlak tegen de klok in. 5. draai het achterste vlak tegen de klok in. 6. draai het onderste vlak 2x tegen de klok in. 7. draai het achterste vlak met de klok mee. 8. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="G" and kubusFormalParameter[2][3][0]=="B" and kubusFormalParameter[2][5][0]=="O" and kubusFormalParameter[2][7][0]=="R":
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak tegen de klok in. 2. draai het achterste vlak tegen de klok in. 3. draai het onderste vlak tegen de klok in. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het achterste vlak tegen de klok in. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het achterste vlak met de klok mee. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="R" and kubusFormalParameter[2][3][0]=="G" and kubusFormalParameter[2][5][0]=="B" and kubusFormalParameter[2][7][0]=="O":
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak 2xtegen de klok in. 2. draai het achterste vlak tegen de klok in. 3. draai het onderste vlak tegen de klok in. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het achterste vlak tegen de klok in. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het achterste vlak met de klok mee. 9. draai het onderste vlak tegen de klok in")
+	if kubusFormalParameter[2][1][0]=="O" and kubusFormalParameter[2][3][0]=="R" and kubusFormalParameter[2][5][0]=="G" and kubusFormalParameter[2][7][0]=="B":
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak met de klok mee. 2. draai het achterste vlak tegen de klok in. 3. draai het onderste vlak tegen de klok in. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het achterste vlak tegen de klok in. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het achterste vlak met de klok mee. 9. draai het onderste vlak tegen de klok in")
   
-	return kubusFormalParameter #hier bezig
+	return kubusFormalParameter 
+	
  
 #doorloop kubus en kijk waar "OW" of "WO" zich bevindt
 for kubusLaag in range(0,3):
