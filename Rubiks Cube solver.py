@@ -1,5 +1,71 @@
 #TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
 
+
+ 
+
+
+# kubus=[
+# ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
+# ["BY","O","GO","B","YO","R", "BR","G"],
+# ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+# ]
+
+# begin toestand van een kubus
+#kubus=[
+#["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
+#["GO","O","RW","B","OB","R","GR","G"],
+#["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
+#]
+
+#kubus=[
+#["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
+#["GY","O","RW","B","RY","R","WO","G"],
+#["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
+#]
+
+#kubus=[
+#["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+#["WB","O","GW","B","GR","R","OB","G"],
+#["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
+#]
+
+#kubus=[
+#["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
+#["RW","O","BY","B","YG","R","BW","G"],
+#["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
+#]
+
+#kubus=[
+#["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
+#["WB","O","GY","B","GR","R","GO","G"],
+#["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
+#]
+
+#kubus=[
+#["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+#["BW","O","GY","B","OB","R","WG","G"],
+#["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
+#]
+
+#kubus=[
+#["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
+#["RB","O","OG","B","BY","R","WO","G"],
+#["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
+#]
+
+#kubus=[
+#["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
+#["YB","O","WG","B","RY","R","OB","G"],
+#["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
+#]
+
+kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["YG","O","OB","B","BR","R","YB","G"],
+["OGY","OY","YRB","BY","YGR","RY","YBO","GY"]	
+]
+
+
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
 	# want alleen de blokjes die beinvloedt worden door de draai, moeten wijzigen. De andere blokjes moeten 
@@ -3318,69 +3384,6 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
     return kubusFormalParameter
     
 
- 
-
-
-# kubus=[
-# ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
-# ["BY","O","GO","B","YO","R", "BR","G"],
-# ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
-# ]
-
-# begin toestand van een kubus
-#kubus=[
-#["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
-#["GO","O","RW","B","OB","R","GR","G"],
-#["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
-#]
-
-#kubus=[
-#["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
-#["GY","O","RW","B","RY","R","WO","G"],
-#["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
-#]
-
-#kubus=[
-#["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-#["WB","O","GW","B","GR","R","OB","G"],
-#["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
-#]
-
-#kubus=[
-#["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
-#["RW","O","BY","B","YG","R","BW","G"],
-#["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
-#]
-
-#kubus=[
-#["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
-#["WB","O","GY","B","GR","R","GO","G"],
-#["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
-#]
-
-#kubus=[
-#["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
-#["BW","O","GY","B","OB","R","WG","G"],
-#["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
-#]
-
-#kubus=[
-#["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
-#["RB","O","OG","B","BY","R","WO","G"],
-#["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
-#]
-
-#kubus=[
-#["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
-#["YB","O","WG","B","RY","R","OB","G"],
-#["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
-#]
-
-kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["YG","O","OB","B","BR","R","YB","G"],
-["OGY","OY","YRB","BY","YGR","RY","YBO","GY"]	
-]
 
 def wisselChar(tekst, van, naar):
 	character = tekst[van]
