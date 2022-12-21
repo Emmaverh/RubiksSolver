@@ -1,4 +1,4 @@
-# use venv ........ (create better intrcuctions_)
+# use venv ........ (create better intructions_)
 
 # create the req.txt file
 Import the necessary modules

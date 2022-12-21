@@ -1,3 +1,5 @@
+#TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
+
 # kubus=[
 # ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
 # ["BY","O","GO","B","YO","R", "BR","G"],
