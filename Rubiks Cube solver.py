@@ -59,10 +59,16 @@
 #["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
 #]
 
+# kubus=[
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
+# ]
+
 kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
+["WGO","WO","YBO","WB","WBR","WR","WRG","WG"],
+["BR","O","YG","B","BY","R","YO","G"],
+["RYG","RY","YOG","OB","OBW","RG","RBY","GO"]	
 ]
 
 
@@ -779,9 +785,10 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				print("1. draai het achterste vlak met de klok mee 2. draai het linker vlak met de klok mee")
 				break
 			if kubusLaag==2 and indexPositieInLaag==7:
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				kubusFormalParameter=draaiB(kubusFormalParameter)
 				kubusFormalParameter=draaiL(kubusFormalParameter)
-				print("1. draai het achterste vlak met de klok mee 2. draai het linker vlak met de klok mee")
+				print("1. draai het onderste vlak tegen de klok in. 2. draai het achterste vlak met de klok mee 3. draai het linker vlak met de klok mee")
 		if BWgevonden:
 			print("BW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
