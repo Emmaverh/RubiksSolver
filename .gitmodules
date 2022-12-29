@@ -1,0 +1,3 @@
+[submodule "rubiks-cube-solver"]
+	path = rubiks-cube-solver
+	url = git@github.com:charlstown/rubiks-cube-solver.git
