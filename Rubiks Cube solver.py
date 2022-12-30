@@ -3,6 +3,7 @@
 import sys, os
 
 from rubikscubegraphics import rubik_library 
+from rubikscubegraphics import cube 
 
 threeD = rubik_library.RubikLibrary()
 # move (f, t, d, r, l, b) followed by a number
@@ -3591,6 +3592,10 @@ def wisselChar(tekst, van, naar):
 	tekst = "".join(temp)
 	return tekst
 
+
+c = cube.CubeConvert()
+c.convertEmma2Graph(kubus)
+
 for kubusLaag in range(0,3):
 	print("")
 	print('laag '+str(kubusLaag))
@@ -3610,6 +3615,7 @@ for kubusLaag in range(0,3):
 print("")
 
 
+c.convertEmma2Graph(kubus)
 
 # for kubusLaag in range(0,2):
 # 	for indexPositieInLaag in range(0,7):

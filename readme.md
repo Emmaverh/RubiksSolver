@@ -1,3 +1,7 @@
+data/cube_saved.json 
+
+is het uitgangspunt
+
 # use venv ........ (create better intructions_)
 
 # create the req.txt file

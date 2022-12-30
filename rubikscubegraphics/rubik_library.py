@@ -114,7 +114,7 @@ class RubikLibrary:
         self.dcube = self.drive.move(self.dcube, permutation)
         self.viz.render(self.dcube, self.moves_counter)
         self.moves_counter += 1
-        time.sleep(1)
+        # time.sleep(1)
 
     def __interface(self):
         """
