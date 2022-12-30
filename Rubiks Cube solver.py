@@ -48,11 +48,11 @@ threeD = rubik_library.RubikLibrary()
 #["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
 #]
 
-#kubus=[
-#["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
-#["BW","O","GY","B","OB","R","WG","G"],
-#["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
-#]
+kubus=[
+["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+["BW","O","GY","B","OB","R","WG","G"],
+["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
+]
 
 #kubus=[
 #["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
@@ -66,11 +66,11 @@ threeD = rubik_library.RubikLibrary()
 #["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
 #]
 
-kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
-]
+# kubus=[
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
+# ]
 
 # kubus=[
 # ["WGO","WO","YBO","WB","WBR","WR","WRG","WG"],
