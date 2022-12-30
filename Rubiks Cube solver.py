@@ -83,10 +83,16 @@
 # ["BOY","YB","OGY","RY","RYG","YO","YRB","GY"]	
 # ]
 
+# kubus=[
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
+# ]
+
 kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
+["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
+["WB","O","OW","B","YB","R","YO","G"],
+["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
 ]
 
 def draaiF(kubus):
