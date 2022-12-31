@@ -99,6 +99,8 @@ kubus=[
 
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
+# test:
+kubus = c.convertGraph2Emma(c.convertEmma2Graph(kubus))
 
 threeD = rubik_library.RubikLibrary()
 # move (f, t, d, r, l, b) followed by a number
