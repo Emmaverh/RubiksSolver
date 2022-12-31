@@ -2,6 +2,7 @@
 import argparse
 import json
 import random as rndm
+from playsound import playsound
 
 # Classes
 import re
@@ -111,7 +112,18 @@ class RubikLibrary:
         :param permutation: (f, t, d, r, l, b) followed by a number.
         :return: None.
         """
+        #converteer bewerking, want wit is bij graphics voor en oranje oranje
+        if permutation[0:1] == 't':
+            permutation='f'+permutation[1:2]
+        elif permutation[0:1] == 'f':
+            permutation='d'+permutation[1:2]
+        elif permutation[0:1] == 'd':
+            permutation='b'+permutation[1:2]
+        elif permutation[0:1] == 'b':
+            permutation='t'+permutation[1:2]
+
         self.dcube = self.drive.move(self.dcube, permutation)
+        playsound('./rubikscubegraphics/draai.mp3')
         self.viz.render(self.dcube, self.moves_counter)
         self.moves_counter += 1
         # time.sleep(1)

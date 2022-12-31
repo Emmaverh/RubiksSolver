@@ -32,14 +32,14 @@ class CubeConvert:
         kubus_emma[0][3][0]+str(4), "w"+str(5),
         kubus_emma[0][7][0]+str(6), kubus_emma[0][2][0]+str(7), 
         kubus_emma[0][1][0]+str(8), kubus_emma[0][0][0]+str(9)  ]
-        kubusGraph["r"] = [kubus_emma[2][4][2]+str(1),kubus_emma[2][5][1]+str(2),kubus_emma[2][6][2]+str(3),
+        kubusGraph["r"] = [kubus_emma[2][4][2]+str(1),kubus_emma[2][5][0]+str(2),kubus_emma[2][6][0]+str(3),
         kubus_emma[1][4][1]+str(4), "r"+str(5),
         kubus_emma[1][6][0]+str(6), kubus_emma[0][4][2]+str(7), 
         kubus_emma[0][5][1]+str(8), kubus_emma[0][6][1]+str(9)  ]        
-        kubusGraph["g"] = [kubus_emma[0][6][2]+str(1),kubus_emma[1][6][1]+str(2),kubus_emma[2][6][0]+str(3),
+        kubusGraph["g"] = [kubus_emma[0][6][2]+str(1),kubus_emma[1][6][1]+str(2),kubus_emma[2][6][2]+str(3),
         kubus_emma[0][7][1]+str(4), "g"+str(5),
         kubus_emma[2][7][0]+str(6), kubus_emma[0][0][1]+str(7), 
-        kubus_emma[1][0][0]+str(8), kubus_emma[2][0][0]+str(9)  ]
+        kubus_emma[1][0][0]+str(8), kubus_emma[2][0][1]+str(9)  ]
         kubusGraph["o"] = [kubus_emma[0][2][1]+str(1),kubus_emma[0][1][1]+str(2),kubus_emma[0][0][2]+str(3),
         kubus_emma[1][2][0]+str(4), "o"+str(5),
         kubus_emma[1][0][1]+str(6), kubus_emma[2][2][0]+str(7), 
@@ -48,13 +48,18 @@ class CubeConvert:
         kubus_emma[2][3][0]+str(4), "b"+str(5),
         kubus_emma[0][3][1]+str(6), kubus_emma[2][2][2]+str(7), 
         kubus_emma[1][2][1]+str(8), kubus_emma[0][2][2]+str(9)  ]
-        kubusGraph["y"] = [kubus_emma[2][6][1]+str(1),kubus_emma[2][5][1]+str(2),kubus_emma[2][4][2]+str(3),
+        kubusGraph["y"] = [kubus_emma[2][6][1]+str(1),kubus_emma[2][5][1]+str(2),kubus_emma[2][4][1]+str(3),
         kubus_emma[2][7][1]+str(4), "y"+str(5),
-        kubus_emma[2][3][1]+str(6), kubus_emma[2][0][1]+str(7), 
+        kubus_emma[2][3][1]+str(6), kubus_emma[2][0][2]+str(7), 
         kubus_emma[2][1][1]+str(8), kubus_emma[2][2][1]+str(9)  ]
            
         with open('data/cube_saved.json', 'w') as f:
             json.dump(kubusGraph, f)
+
+        for kubusLaag in range(0,3):
+            for indexPositieInLaag in range(0,8):
+                kubus_emma[kubusLaag][indexPositieInLaag]=kubus_emma[kubusLaag][indexPositieInLaag].upper()
+ 
         return kubusGraph
 
 class Cube:

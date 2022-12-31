@@ -1,17 +1,22 @@
 #TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
 
-import sys, os
+import sys, os, time
 
 from rubikscubegraphics import rubik_library 
 from rubikscubegraphics import cube 
 
-
-
+# kubus in opgeloste toestand:
 # kubus=[
-# ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
-# ["BY","O","GO","B","YO","R", "BR","G"],
-# ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 # ]
+
+kubus=[
+["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
+["BY","O","GO","B","YO","R", "BR","G"],
+["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+]
 
 # begin toestand van een kubus
 #kubus=[
@@ -44,11 +49,11 @@ from rubikscubegraphics import cube
 #["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
 #]
 
-kubus=[
-["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
-["BW","O","GY","B","OB","R","WG","G"],
-["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
-]
+# kubus=[
+# ["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+# ["BW","O","GY","B","OB","R","WG","G"],
+# ["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
+# ]
 
 #kubus=[
 #["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
@@ -101,8 +106,6 @@ threeD = rubik_library.RubikLibrary()
 # e.g.
 # threeD.move('t1')
 # threeD.move('t3')
-
-
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
@@ -3619,7 +3622,7 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-
+time.sleep(60*60)
 
 # for kubusLaag in range(0,2):
 # 	for indexPositieInLaag in range(0,7):
