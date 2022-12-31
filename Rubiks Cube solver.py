@@ -6,24 +6,23 @@ from rubikscubegraphics import rubik_library
 from rubikscubegraphics import cube 
 
 # kubus in opgeloste toestand:
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-# ]
-
 kubus=[
-["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
-["BY","O","GO","B","YO","R", "BR","G"],
-["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 ]
 
-# begin toestand van een kubus
-#kubus=[
-#["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
-#["GO","O","RW","B","OB","R","GR","G"],
-#["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
-#]
+# kubus=[
+# ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
+# ["BY","O","GO","B","YO","R", "BR","G"],
+# ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+# ]
+
+# kubus=[
+# ["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
+# ["GO","O","RW","B","OB","R","GR","G"],
+# ["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
+# ]
 
 #kubus=[
 #["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
@@ -504,6 +503,7 @@ def draaiD(kubus):
 
 def draaiDinv(kubus):
     
+	# for an invesre could also have done, but this makes 2 extra turns: return (draaiD(draaiD(draaiD(kubus))))
 
 	# see https://stackoverflow.com/a/6533065
 	# kubusCopy=kubus.deepcopy()
@@ -614,6 +614,7 @@ def kubus_oplossen(kubusFormalParameter):
 				OWgevonden=True
 				break
 		if WOgevonden:
+			print("")
 			print("WO gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				print("WO staat al op de juiste plek") 
@@ -662,12 +663,12 @@ def kubus_oplossen(kubusFormalParameter):
 				print("1. draai het voorste vlak met de klok mee 2. draai het bovenste vlak met de klok mee 3. draai het linker vlak tegen de klok in 4. draai het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==2 and indexPositieInLaag==3:
+				print("1. draai het onderste vlak tegen de klok in 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				kubusFormalParameter=draaiLinv(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				print("1. draai het onderste vlak tegen de klok in 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				break
 			if kubusLaag==2 and indexPositieInLaag==5:
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
@@ -687,6 +688,7 @@ def kubus_oplossen(kubusFormalParameter):
 				print("1. draai het onderste vlak met de klok mee 2. draai het voorste vlak met de klok mee 3. draai het bovenste vlak met de klok mee 4. draai het linker vlak tegen de klok in 5. draai het bovenste vlak tegen de klok in")
 				break
 		if OWgevonden:
+			print("")
 			print("OW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiF(kubusFormalParameter)
@@ -1723,11 +1725,13 @@ def WRG_RGW_GWR_oplossen(kubusFormalParameter):
 				break
 		if WRGgevonden:
 			if kubusLaag==0 and indexPositieInLaag==6: 
+				print("")
 				print ("WRG", end = ' ')  # print on same line
 				print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
 				print("WRG staat al goed")
 				break 
 		if RGWgevonden or GWRgevonden:
+			print("")
 			if RGWgevonden: print ("RGW", end = ' ')  # print on same line
 			if GWRgevonden: print ("GWR", end = ' ')  # print on same line
 			print("gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
@@ -3595,12 +3599,12 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
     
 
 
-def wisselChar(tekst, van, naar):
-	character = tekst[van]
-	temp = list(tekst) 
-	temp[naar] = character
-	tekst = "".join(temp)
-	return tekst
+# def wisselChar(tekst, van, naar):
+# 	character = tekst[van]
+# 	temp = list(tekst) 
+# 	temp[naar] = character
+# 	tekst = "".join(temp)
+# 	return tekst
 
 
 
