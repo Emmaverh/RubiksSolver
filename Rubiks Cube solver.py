@@ -5,11 +5,6 @@ import sys, os
 from rubikscubegraphics import rubik_library 
 from rubikscubegraphics import cube 
 
-threeD = rubik_library.RubikLibrary()
-# move (f, t, d, r, l, b) followed by a number
-# e.g.
-# threeD.move('t1')
-# threeD.move('t3')
 
 
 # kubus=[
@@ -96,6 +91,18 @@ kubus=[
 # ["GO","O","OB","B","BR","R","RG","G"],
 # ["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
 # ]
+
+
+c = cube.CubeConvert()
+c.convertEmma2Graph(kubus)
+
+threeD = rubik_library.RubikLibrary()
+# move (f, t, d, r, l, b) followed by a number
+# e.g.
+# threeD.move('t1')
+# threeD.move('t3')
+
+
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
@@ -3593,8 +3600,6 @@ def wisselChar(tekst, van, naar):
 	return tekst
 
 
-c = cube.CubeConvert()
-c.convertEmma2Graph(kubus)
 
 for kubusLaag in range(0,3):
 	print("")
@@ -3615,7 +3620,6 @@ for kubusLaag in range(0,3):
 print("")
 
 
-c.convertEmma2Graph(kubus)
 
 # for kubusLaag in range(0,2):
 # 	for indexPositieInLaag in range(0,7):
