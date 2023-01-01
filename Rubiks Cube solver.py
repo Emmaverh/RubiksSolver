@@ -6,11 +6,11 @@ from rubikscubegraphics import rubik_library
 from rubikscubegraphics import cube 
 
 # kubus in opgeloste toestand:
-kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
+# kubus=[
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+# ]
 
 # kubus=[
 # ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
@@ -30,11 +30,11 @@ kubus=[
 #["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 #]
 
-#kubus=[
-#["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-#["WB","O","GW","B","GR","R","OB","G"],
-#["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
-#]
+kubus=[
+["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+["WB","O","GW","B","GR","R","OB","G"],
+["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
+]
 
 #kubus=[
 #["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
@@ -99,8 +99,6 @@ kubus=[
 
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
-# test:
-kubus = c.convertGraph2Emma(c.convertEmma2Graph(kubus))
 
 threeD = rubik_library.RubikLibrary()
 # move (f, t, d, r, l, b) followed by a number
@@ -692,6 +690,8 @@ def kubus_oplossen(kubusFormalParameter):
 		if OWgevonden:
 			print("")
 			print("OW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			print (c.convertEmma2Graph(kubusFormalParameter))
+			print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
@@ -866,6 +866,7 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				print("1. draai het onderste vlak tegen de klok in. 2. draai het achterste vlak met de klok mee 3. draai het linker vlak met de klok mee")
 		if BWgevonden:
 			print("BW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				kubusFormalParameter=draaiLinv(kubusFormalParameter)
@@ -915,9 +916,13 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				print("1. draai het linker vlak met de klok mee")
 				break
 			if kubusLaag==1 and indexPositieInLaag==6:
+				print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 				kubusFormalParameter=draaiB(kubusFormalParameter)
+				print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 				kubusFormalParameter=draaiDinv(kubusFormalParameter)
+				print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 				kubusFormalParameter=draaiLinv(kubusFormalParameter)
+				print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 				kubusFormalParameter=draaiLinv(kubusFormalParameter)
 				print("1. draai het achterste vlak met de klok mee 2. draai het onderste vlak tegen de klok in 3. draai het linker vlak 2x tegen de klok in.")
 				break
@@ -1043,6 +1048,7 @@ def WR_of_RW_oplossen(kubusFormalParameter):
 				break
 		if RWgevonden:
 			print("RW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
 				kubusFormalParameter=draaiU(kubusFormalParameter)
@@ -1218,6 +1224,7 @@ def WG_of_GW_oplossen(kubusFormalParameter):
 				break
 		if GWgevonden:
 			print("GW gevonden in laag "+str(kubusLaag)+" op positie "+str(indexPositieInLaag))
+			print (c.convertGraph2Emma(c.convertEmma2Graph(kubusFormalParameter)))
 			if kubusLaag==0 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiF(kubusFormalParameter)
 				kubusFormalParameter=draaiR(kubusFormalParameter)
@@ -1844,7 +1851,6 @@ def WRG_RGW_GWR_oplossen(kubusFormalParameter):
 					if kubusFormalParameter[0][6] == "WRG":
 						break 
 				break
-
 	return OB_of_BO_oplossen(kubusFormalParameter)
  
 def OB_of_BO_oplossen(kubusFormalParameter):

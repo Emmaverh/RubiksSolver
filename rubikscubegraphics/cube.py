@@ -25,9 +25,9 @@ class CubeConvert:
 
         # kubus in opgeloste toestand:
         kubus_emma=[
-        ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-        ["GO","O","OB","B","BR","R","RG","G"],
-        ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+        ["","","","","","","",""],
+        ["","","","","","","",""],
+        ["","","","","","","",""]	
         ]
 
         # kubusGraph =json.loads('{ "w": ["w1", "w2", "w3", "w4", "w5", "w6", "w7", "w8", "w9"],"r": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9"],  "g": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9"],  "o": ["o1", "o2", "o3", "o4", "o5", "o6", "o7", "o8", "o9"],  "b": ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"],  "y": ["y1", "y2", "y3", "y4", "y5", "y6", "y7", "y8", "y9"]}')
@@ -40,8 +40,56 @@ class CubeConvert:
         kubus_emma[0][2]=kubusGraph["w"][7-1][0].upper()
         kubus_emma[0][2]+=kubusGraph["o"][1-1][0].upper()
         kubus_emma[0][2]+=kubusGraph["b"][9-1][0].upper()
+        kubus_emma[0][3]=kubusGraph["w"][4-1][0].upper()
+        kubus_emma[0][3]+=kubusGraph["b"][6-1][0].upper()
+        kubus_emma[0][4]=kubusGraph["w"][1-1][0].upper()
+        kubus_emma[0][4]+=kubusGraph["b"][3-1][0].upper()
+        kubus_emma[0][4]+=kubusGraph["r"][7-1][0].upper()
+        kubus_emma[0][5]=kubusGraph["w"][2-1][0].upper()
+        kubus_emma[0][5]+=kubusGraph["r"][8-1][0].upper()
+        kubus_emma[0][6]=kubusGraph["w"][3-1][0].upper()
+        kubus_emma[0][6]+=kubusGraph["r"][9-1][0].upper()
+        kubus_emma[0][6]+=kubusGraph["g"][1-1][0].upper()
+        kubus_emma[0][7]=kubusGraph["w"][6-1][0].upper()
+        kubus_emma[0][7]+=kubusGraph["g"][4-1][0].upper()
+        kubus_emma[1][0]=kubusGraph["o"][6-1][0].upper()
+        kubus_emma[1][0]+=kubusGraph["g"][8-1][0].upper()
+        kubus_emma[1][1]="O"
+        kubus_emma[1][2]=kubusGraph["o"][4-1][0].upper()
+        kubus_emma[1][2]+=kubusGraph["b"][8-1][0].upper()
+        kubus_emma[1][3]="B"
+        kubus_emma[1][4]=kubusGraph["b"][2-1][0].upper()
+        kubus_emma[1][4]+=kubusGraph["r"][4-1][0].upper()
+        kubus_emma[1][5]="R"
+        kubus_emma[1][6]=kubusGraph["r"][6-1][0].upper()
+        kubus_emma[1][6]+=kubusGraph["g"][2-1][0].upper()
+        kubus_emma[1][7]="G"
+        kubus_emma[2][0]=kubusGraph["o"][9-1][0].upper()
+        kubus_emma[2][0]+=kubusGraph["g"][9-1][0].upper()
+        kubus_emma[2][0]+=kubusGraph["r"][1-1][0].upper()
+        kubus_emma[2][1]=kubusGraph["o"][8-1][0].upper()
+        kubus_emma[2][1]+=kubusGraph["y"][8-1][0].upper()
+        kubus_emma[2][2]=kubusGraph["o"][7-1][0].upper()
+        kubus_emma[2][2]+=kubusGraph["y"][9-1][0].upper()
+        kubus_emma[2][2]+=kubusGraph["b"][7-1][0].upper()
+        kubus_emma[2][3]=kubusGraph["b"][4-1][0].upper()
+        kubus_emma[2][3]+=kubusGraph["y"][6-1][0].upper()
+        kubus_emma[2][4]=kubusGraph["b"][1-1][0].upper()
+        kubus_emma[2][4]+=kubusGraph["y"][3-1][0].upper()
+        kubus_emma[2][4]+=kubusGraph["r"][1-1][0].upper()
+        kubus_emma[2][5]=kubusGraph["r"][2-1][0].upper()
+        kubus_emma[2][5]+=kubusGraph["y"][2-1][0].upper()
+        kubus_emma[2][6]=kubusGraph["r"][3-1][0].upper()
+        kubus_emma[2][6]+=kubusGraph["y"][1-1][0].upper()
+        kubus_emma[2][6]+=kubusGraph["g"][3-1][0].upper()
+        kubus_emma[2][7]=kubusGraph["g"][6-1][0].upper()
+        kubus_emma[2][7]+=kubusGraph["y"][4-1][0].upper()
         
-
+        # kubus_emma=[
+        # ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+        # ["GO","O","OB","B","BR","R","RG","G"],
+        # ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+        # ]
         return kubus_emma
 
     @staticmethod
