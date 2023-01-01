@@ -23,11 +23,11 @@
 #["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 #]
 
-#kubus=[
-#["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-#["WB","O","GW","B","GR","R","OB","G"],
-#["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
-#]
+kubus=[
+["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+["WB","O","GW","B","GR","R","OB","G"],
+["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
+]
 
 #kubus=[
 #["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
@@ -89,11 +89,11 @@
 # ["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
 # ]
 
-kubus=[
-["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
-["WB","O","OW","B","YB","R","YO","G"],
-["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
-]
+# kubus=[
+# ["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
+# ["WB","O","OW","B","YB","R","YO","G"],
+# ["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
+# ]
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
