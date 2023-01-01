@@ -1,16 +1,18 @@
 #TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
 
-import sys, os, time
+import sys, os, time, json
+from typing import List
 
 from rubikscubegraphics import rubik_library 
 from rubikscubegraphics import cube 
+from dataclasses import dataclass
 
 # kubus in opgeloste toestand:
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-# ]
+kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
 
 # kubus=[
 # ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
@@ -30,11 +32,11 @@ from rubikscubegraphics import cube
 #["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 #]
 
-kubus=[
-["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-["WB","O","GW","B","GR","R","OB","G"],
-["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
-]
+# kubus=[
+# ["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+# ["WB","O","GW","B","GR","R","OB","G"],
+# ["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
+# ]
 
 #kubus=[
 #["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
@@ -100,7 +102,7 @@ kubus=[
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
 
-threeD = rubik_library.RubikLibrary()
+threeD = rubik_library.RubikLibrary(False)  # false: no 3D graph
 # move (f, t, d, r, l, b) followed by a number
 # e.g.
 # threeD.move('t1')
@@ -595,7 +597,7 @@ def draaiUinv(kubus):
 
 	return kubusCopy
 
-def kubus_oplossen(kubusFormalParameter):
+def eerste_laag_oplossen(kubusFormalParameter):
 	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
 	WOgevonden=False
@@ -1851,9 +1853,9 @@ def WRG_RGW_GWR_oplossen(kubusFormalParameter):
 					if kubusFormalParameter[0][6] == "WRG":
 						break 
 				break
-	return OB_of_BO_oplossen(kubusFormalParameter)
+	return kubusFormalParameter
  
-def OB_of_BO_oplossen(kubusFormalParameter):
+def tweede_laag_oplossen(kubusFormalParameter):
     	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
 	OBgevonden=False
@@ -2575,9 +2577,9 @@ def RG_of_GR_oplossen(kubusFormalParameter):
 				print("1. draai het onderste vlak met de klok mee. 2. draai het achterste vlak met de klok mee. 3. draai het onderste vlak tegen de klok in. 4. draai het achterste vlak tegen de klok in. 5. draai het onderste vlak tegen de klok in. 6. draai het rechter vlak met de klok mee. 7. draai het onderste vlak met de klok mee. 8. draai het rechter vlak tegen de klok in.")
 				break
 
-	return GO_of_OG_oplossen(kubusFormalParameter)
+	return kubusFormalParameter
 
-def GO_of_OG_oplossen(kubusFormalParameter):
+def derde_laag_oplossen(kubusFormalParameter):
 	GOgevonden=False
 	OGgevonden=False
 	for kubusLaag in range(0,3):
@@ -3606,16 +3608,6 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
     return kubusFormalParameter
     
 
-
-# def wisselChar(tekst, van, naar):
-# 	character = tekst[van]
-# 	temp = list(tekst) 
-# 	temp[naar] = character
-# 	tekst = "".join(temp)
-# 	return tekst
-
-
-
 for kubusLaag in range(0,3):
 	print("")
 	print('laag '+str(kubusLaag))
@@ -3624,7 +3616,15 @@ for kubusLaag in range(0,3):
 
 print("")
 
-kubus=kubus_oplossen(kubus)
+input=[
+["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+kubus=eerste_laag_oplossen(kubus)
+kubus=tweede_laag_oplossen(kubus)
+kubus=derde_laag_oplossen(kubus)
 
 print("***************************************************")
 for kubusLaag in range(0,3):
@@ -3634,7 +3634,7 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-time.sleep(60*60)
+# time.sleep(60*60)
 
 # for kubusLaag in range(0,2):
 # 	for indexPositieInLaag in range(0,7):
@@ -3677,85 +3677,54 @@ time.sleep(60*60)
 
 
 
-def test_draaiU():
+# https://stackoverflow.com/a/62216769
+@dataclass
+class MyClass():
+	foo: List[List[str]]
+
+def equal(obj1,obj2):
+	return MyClass(foo=obj1[0]) == MyClass(foo=obj2[0])  and MyClass(foo=obj1[1]) == MyClass(foo=obj2[1]) and MyClass(foo=obj1[2]) == MyClass(foo=obj2[2])
+
+def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
+        # opgeloste toestand van een kubus
+	eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['GR', 'O', 'RY', 'B', 'OG', 'R', 'BO', 'G'], ['RBY', 'OY', 'OGY', 'BR', 'OYB', 'YG', 'YGR', 'BY']] 
+	input=[
+["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	output = eerste_laag_oplossen(input)
+	assert equal(eerste_laag_opgelost,output)
+
+# def test_opgelost_als_WO_op_plek03():
+#         # begin toestand van een kubus
+# 	kubus=[
+# ["WGO","WB","WOB","WO","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+# ]
+
+#         # opgeloste toestand van een kubus
+# 	output=[
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+# ]
+
+# 	assert ordered(eerste_laag_oplossen(kubus))==ordered(output)
+
+def test_bewerkingen_en_hun_inverse():
         # begin toestand van een kubus
-    kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-    assert draaiU(kubus) != [
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-
-def test_draaiU_2():
-        # begin toestand van een kubus
-	kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-	expected = [
-["WRG","WG","WGO","WO","WOB","WB","WBR","WR"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-	result = draaiU(kubus)
-
-	assert controleer_kubus(result, expected)
-
-
-def controleer_kubus(kubus1, kubus2):
-	gelijk = kubus1[0][0] == kubus2[0][0]	
-	gelijk = gelijk and (kubus1[0][1] == kubus2[0][1])
-	gelijk = gelijk and (kubus1[0][2] == kubus2[0][2])
-	# test andere blokjes ook
-
-	return gelijk
-
-
-
-
-
-def test_opgelost_als_WO_op_juiste_plek():
-        # begin toestand van een kubus
-	kubus=[
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-
-	assert eerste_laag_oplossen(kubus)
-
-def test_opgelost_als_WO_op_onjuiste_plek():
-        # begin toestand van een kubus
-	kubus=[
-["WGO","OW","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-
-	assert not eerste_laag_oplossen(kubus)
-
-def test_opgelost_als_WO_op_plek03():
-        # begin toestand van een kubus
-	kubus=[
-["WGO","WB","WOB","WO","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-
-	assert eerste_laag_oplossen(kubus)
-
-def test_opgelost_als_WO_niet_op_plek03():
-        # begin toestand van een kubus
-	kubus=[
+	input=[
 ["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 ]
-
-	assert not eerste_laag_oplossen(kubus)
+	output=draaiFinv(draaiF(input))
+	output=draaiBinv(draaiB(input))
+	output=draaiLinv(draaiL(input))
+	output=draaiRinv(draaiR(input))
+	output=draaiUinv(draaiU(input))
+	output=draaiDinv(draaiD(input))
+	assert equal(output, input)
 

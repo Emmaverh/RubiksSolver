@@ -22,7 +22,7 @@ class RubikLibrary:
         - __interface
     """
 
-    def __init__(self):
+    def __init__(self, do_run):
         """
         Constructor from APP class to read the config file, generate the instances from modules
         and declare global variables.
@@ -30,30 +30,15 @@ class RubikLibrary:
         :param dir_face_map: path with the face mapper file.
         :param dir_cube_saved: path with the data of the cube resolved.
         """
-        # Initialize the argument parser
-        parser = argparse.ArgumentParser()
-        parser.add_argument("--config", "-c", default="data/config.json",
-                            help="Add the config file path after this flag")
-        parser.add_argument("--cube", "-cb", default="data/cube_saved.json",
-                            help="Add the config file path after this flag")
-        parser.add_argument("--mapping", "-m", default="data/face_map.json",
-                            help="Add the config file path after this flag")
-        # parser.add_argument("--test", "-t", default=False, action='store_true',
-        #                     help="This argument is a switcher, by default is false")
-        args = parser.parse_args()
-
-        # Argument variables
-        arg_config = args.config
-        arg_cube = args.cube
-        arg_map = args.mapping
-        print("Initial args:")
-        for k, v in vars(args).items():
-            print(f"- {k}: {v}")
+        
+        self.do_run=do_run
+        if not do_run:
+            return
 
         # App execution
-        dir_config=arg_config
-        dir_face_map=arg_map
-        dir_cube_saved=arg_cube
+        dir_config = "data/config.json"
+        dir_face_map= "data/face_map.json"
+        dir_cube_saved="data/cube_saved.json"
 
         # Reading the face map json file
         with open(dir_config) as f:
@@ -112,6 +97,8 @@ class RubikLibrary:
         :param permutation: (f, t, d, r, l, b) followed by a number.
         :return: None.
         """
+        if not self.do_run:
+            return
         #converteer bewerking, want wit is bij graphics voor en oranje is onder
         aantalperm = permutation[1:2]
         side = permutation[0:1]
