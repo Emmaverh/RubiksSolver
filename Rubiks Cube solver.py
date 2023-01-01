@@ -1,7 +1,14 @@
 #TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
 
+import sys, os
 
- 
+from rubikscubegraphics import rubik_library 
+
+threeD = rubik_library.RubikLibrary()
+# move (f, t, d, r, l, b) followed by a number
+# e.g.
+# threeD.move('t1')
+# threeD.move('t3')
 
 
 # kubus=[
@@ -41,11 +48,11 @@
 #["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
 #]
 
-#kubus=[
-#["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
-#["BW","O","GY","B","OB","R","WG","G"],
-#["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
-#]
+# kubus=[
+# ["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+# ["BW","O","GY","B","OB","R","WG","G"],
+# ["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
+# ]
 
 #kubus=[
 #["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
@@ -145,6 +152,9 @@ def draaiF(kubus):
 	kubusCopy[2][1]=b0+b1
  
 	kubusCopy[2][2]=kubus[2][0]
+
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('f1')
 	
 	return kubusCopy
 
@@ -185,6 +195,9 @@ def draaiFinv(kubus):
 	b1=kubus[0][2][2]
 	b2=kubus[0][2][0]
 	kubusCopy[2][2]=b0+b1+b2
+	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('f3')
 	
 	return kubusCopy
 
@@ -228,6 +241,9 @@ def draaiL(kubus):
 	b2=kubus[2][2][1]
 	kubusCopy[2][4]=b0+b1+b2
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('l1')
+
 	return kubusCopy
 
 def draaiLinv(kubus):
@@ -269,6 +285,9 @@ def draaiLinv(kubus):
 	b2=kubus[0][4][0]
 	kubusCopy[2][4]=b0+b1+b2
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('l3')
+
 	return kubusCopy
 
 def draaiB(kubus):
@@ -311,6 +330,9 @@ def draaiB(kubus):
 	b2=kubus[0][6][0]
 	kubusCopy[2][6]=b0+b1+b2
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('b1')
+
 	return kubusCopy
 
 def draaiBinv(kubus):
@@ -353,6 +375,9 @@ def draaiBinv(kubus):
 	b2=kubus[2][4][1]
 	kubusCopy[2][6]=b0+b1+b2
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('b3')
+
 	return kubusCopy
 
 def draaiR(kubus):
@@ -391,6 +416,9 @@ def draaiR(kubus):
 	b2=kubus[2][6][0]
 	kubusCopy[2][0]=b0+b1+b2
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('r1')
+
 	return kubusCopy
 
 def draaiRinv(kubus):
@@ -429,6 +457,9 @@ def draaiRinv(kubus):
 	
 	kubusCopy[2][0]=kubus[0][0]
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('r3')
+
 	return kubusCopy
 
 def draaiD(kubus):
@@ -461,6 +492,9 @@ def draaiD(kubus):
 	
 	kubusCopy[2][7]=kubus[2][5]
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('d1')
+
 	return kubusCopy
 
 def draaiDinv(kubus):
@@ -493,6 +527,9 @@ def draaiDinv(kubus):
 	
 	kubusCopy[2][7]=kubus[2][1]
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('d3')
+
 	return kubusCopy
 
 def draaiU(kubus):
@@ -519,6 +556,9 @@ def draaiU(kubus):
 	
 	kubusCopy[0][7]=kubus[0][5]
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('t1')
+
 	return kubusCopy
 
 def draaiUinv(kubus):
@@ -545,6 +585,9 @@ def draaiUinv(kubus):
 	
 	kubusCopy[0][7]=kubus[0][1]
 	
+	# move (f, t, d, r, l, b) followed by a number
+	threeD.move('t3')
+
 	return kubusCopy
 
 def kubus_oplossen(kubusFormalParameter):
