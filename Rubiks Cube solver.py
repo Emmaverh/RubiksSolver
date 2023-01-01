@@ -23,11 +23,11 @@
 #["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 #]
 
-kubus=[
-["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-["WB","O","GW","B","GR","R","OB","G"],
-["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
-]
+# kubus=[
+# ["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+# ["WB","O","GW","B","GR","R","OB","G"],
+# ["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	#aan deze kubus klopt iets niet.
+# ]
 
 #kubus=[
 #["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
@@ -94,6 +94,12 @@ kubus=[
 # ["WB","O","OW","B","YB","R","YO","G"],
 # ["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
 # ]
+
+kubus=[
+["RWB","RY","OBW","OB","OYB","YG","RBY","BR"],
+["WR","O","BW","B","RG","R","GW","G"],
+["GYO","OG","GWR","YO","OWG","RY","GRY","OW"]
+]
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
@@ -2861,7 +2867,7 @@ def Geel_kruis_maken(kubusFormalParameter):
 		kubusFormalParameter=draaiD(kubusFormalParameter)
 		kubusFormalParameter=draaiFinv(kubusFormalParameter)
 		print("LOLLLLLL1. draai het voorste vlak met de klok mee 2. draai het linker vlak met de klok mee 3. draai het onderste vlak tegen de klok in 4. draai het linker vlak tegen de klok in. 5. draai het onderste vlak met de klok mee. 6. draai het linker vlak met de klok mee 7. draai het onderste vlak tegen de klok in 8. draai het linker vlak tegen de klok in. 9. draai het onderste vlak met de klok mee. 10. draai het voorste vlak tegen de klok in. 11. draai het onderste vlak met de klok mee 12. draai het voorste vlak met de klok mee 13. draai het linker vlak met de klok mee 14. draai het onderste vlak tegen de klok in 15. draai het linker vlak tegen de klok in. 16. draai het onderste vlak met de klok mee. 17. draai het voorste vlak tegen de klok in.")
- 
+	print(kubusFormalParameter)
 	return Geel_kruis_goedzetten (kubusFormalParameter)
 
 def Geel_kruis_goedzetten (kubusFormalParameter):
@@ -3154,7 +3160,7 @@ def Geel_kruis_goedzetten (kubusFormalParameter):
 		kubusFormalParameter=draaiB(kubusFormalParameter)
 		kubusFormalParameter=draaiDinv(kubusFormalParameter)
 		print("1. draai het onderste vlak met de klok mee. 2. draai het achterste vlak tegen de klok in. 3. draai het onderste vlak tegen de klok in. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het achterste vlak tegen de klok in. 7. draai het onderste vlak 2x tegen de klok in. 8. draai het achterste vlak met de klok mee. 9. draai het onderste vlak tegen de klok in")
-  
+	print(kubusFormalParameter)
 	return GeleHoeken_op_de_goede_plaats_zetten(kubusFormalParameter)
 
 def GeleHoeken_op_de_goede_plaats_zetten(kubusFormalParameter):
@@ -3302,7 +3308,8 @@ def GeleHoeken_op_de_goede_plaats_zetten(kubusFormalParameter):
 	# 	kubusFormalParameter=draaiBinv(kubusFormalParameter)
 	# 	kubusFormalParameter=draaiD(kubusFormalParameter)
 	# 	print("1. draai het onderste vlak 2x tegen de klok in. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak met de klok mee. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak tegen de klok in. 7. draai het onderste vlak met de klok mee. 8. draai het achterste vlak tegen de klok in. 9. draai het onderste vlak tegen de klok in. 10. draai het voorste vlak met de klok mee. 11. draai het onderste vlak met de klok mee. 12. draai het achterste vlak met de klok mee. 13. draai het onderste vlak tegen de klok in. 14. draai het voorste vlak tegen de klok in. 15. draai het onderste vlak met de klok mee. 16. draai het achterste vlak tegen de klok in. 17. draai het onderste vlak met de klok mee.")
-  
+	
+	print(kubusFormalParameter)
 	return GeleHoeken_goed_zetten(kubusFormalParameter)
 
 def GeleHoeken_goed_zetten(kubusFormalParameter):
@@ -3487,7 +3494,8 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             print("ADA 1. draai het voorste vlak tegen de klok in 2. draai het bovenste vlak tegen de klok in. 3. draai het voorste vlak met de klok mee 4. draai het bovenste vlak met de klok mee. ")
             if kubusFormalParameter[2][0]== "GRY":
                 break
-            
+    
+    print(kubusFormalParameter)
     return Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter)
 
 def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
