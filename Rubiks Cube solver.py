@@ -102,7 +102,7 @@ kubus=[
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
 
-threeD = rubik_library.RubikLibrary(False)  # false: no 3D graph
+threeD = rubik_library.RubikLibrary(True)  # false: no 3D graph
 # move (f, t, d, r, l, b) followed by a number
 # e.g.
 # threeD.move('t1')
@@ -3696,22 +3696,6 @@ def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
 	output = eerste_laag_oplossen(input)
 	assert equal(eerste_laag_opgelost,output)
 
-# def test_opgelost_als_WO_op_plek03():
-#         # begin toestand van een kubus
-# 	kubus=[
-# ["WGO","WB","WOB","WO","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-# ]
-
-#         # opgeloste toestand van een kubus
-# 	output=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-# ]
-
-# 	assert ordered(eerste_laag_oplossen(kubus))==ordered(output)
 
 def test_bewerkingen_en_hun_inverse():
         # begin toestand van een kubus
