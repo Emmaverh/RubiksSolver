@@ -1,3 +1,6 @@
+![RubiksCube](https://user-images.githubusercontent.com/39596377/211668102-75bd9dab-7fd2-41c4-a249-9fc90c512aed.png)
+
+
 data/cube_saved.json 
 
 is het uitgangspunt
