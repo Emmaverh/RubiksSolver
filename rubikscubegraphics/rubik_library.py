@@ -111,6 +111,7 @@ class RubikLibrary:
             aantalperm =  str((int(aantalperm)+2)%4) # wegens, volgens mij foutje vanm Emma, DINV is D en andersom???
         elif side == 'b':
             side='t'
+            aantalperm =  str((int(aantalperm)+2)%4) # wegens, volgens mij foutje vanm Emma, DINV is D en andersom???
         permutation=side+aantalperm
 
         self.dcube = self.drive.move(self.dcube, permutation)

@@ -8,10 +8,28 @@ from rubikscubegraphics import cube
 from dataclasses import dataclass
 
 # kubus in opgeloste toestand:
-kubus=[
+# kubus=[  #goed
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+# ]
+
+# kubus=[  # goed
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","BR","R","RG","G"],
+# ["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
+# ]
+
+# kubus=[  # goed
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","Yr","R","RG","G"],
+# ["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
+# ]
+
+kubus=[  # goed
 ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+["GO","O","OB","B","GY","R","RG","G"],
+["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
 ]
 
 # kubus=[
@@ -28,7 +46,7 @@ kubus=[
 
 #kubus=[
 #["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
-#["GY","O","RW","B","RY","R","WO","G"],
+#["GY","O","RW","B","RY"1,"R","WO","G"],
 #["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 #]
 
@@ -102,7 +120,7 @@ kubus=[
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
 
-threeD = rubik_library.RubikLibrary(False)  # False: no 3D graph
+threeD = rubik_library.RubikLibrary(True)  # False: no 3D graph
 # move (f, t, d, r, l, b) followed by a number
 # e.g.
 # threeD.move('t1')
@@ -499,7 +517,7 @@ def draaiD(kubus):
 	kubusCopy[2][7]=kubus[2][5]
 	
 	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('d1')
+	threeD.move('d1')   #  is dit met de klok mee???
 
 	return kubusCopy
 
@@ -535,7 +553,7 @@ def draaiDinv(kubus):
 	kubusCopy[2][7]=kubus[2][1]
 	
 	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('d3')
+	threeD.move('d3')   # is dit tegen de klok in???
 
 	return kubusCopy
 
@@ -3616,11 +3634,21 @@ for kubusLaag in range(0,3):
 
 print("")
 
-input=[
-["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
-]
+
+# input=kubus
+# output=draaiF(input)
+# output=draaiFinv(output)
+# output=draaiB(input)
+# output=draaiBinv(output)
+# output=draaiL(input)
+# output=draaiLinv(output)
+# output=draaiR(input)
+# output=draaiRinv(output)
+# output=draaiU(input)
+# output=draaiUinv(output)
+# output=draaiD(input)
+# output=draaiDinv(output)
+
 
 kubus=eerste_laag_oplossen(kubus)
 kubus=tweede_laag_oplossen(kubus)
