@@ -107,10 +107,16 @@
 # ["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
 # ]
 
+# kubus=[
+# ["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
+# ["RG","O","RY","B","RW","R","WB","G"],
+# ["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
+# ]
+
 kubus=[
-["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
-["RG","O","RY","B","RW","R","WB","G"],
-["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
+["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
+["WB","O","YO","B","RW","R","YG","G"],
+["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
 ]
 
 def draaiF(kubus):
@@ -3411,7 +3417,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
         print("gevonden in laag "+str(2)+" op positie "+str(4))
         print("BYR staat al goed")
 
-    if kubusFormalParameter[2][4]=="RBY" and kubusFormalParameter[2][2]=="OYB":
+    if kubusFormalParameter[2][4]=="RBY":
         kubusFormalParameter=draaiDinv(kubusFormalParameter)
         kubusFormalParameter=draaiDinv(kubusFormalParameter)
         print("1. draai het onderste vlak 2x tegen de klok in.")
@@ -3425,7 +3431,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             if kubusFormalParameter[2][0] == "RBY":
                 break
     
-    if kubusFormalParameter[2][2]=="RBY" and kubusFormalParameter[2][0]=="BOY":
+    if kubusFormalParameter[2][2]=="RBY":
         kubusFormalParameter=draaiDinv(kubusFormalParameter)
         print("1. draai het onderste vlak tegen de klok in.")
         while True:
@@ -3440,7 +3446,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
         
         
     
-    if kubusFormalParameter[2][4]=="YRB" and kubusFormalParameter[2][2]=="OYB":
+    if kubusFormalParameter[2][4]=="YRB":
         kubusFormalParameter=draaiDinv(kubusFormalParameter)
         kubusFormalParameter=draaiDinv(kubusFormalParameter)
         print("1. draai het onderste vlak 2x tegen de klok in.")
@@ -3454,7 +3460,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             if kubusFormalParameter[2][0] == "RBY":
                 break
 
-    if kubusFormalParameter[2][2]=="YRB" and kubusFormalParameter[2][0]=="BOY":
+    if kubusFormalParameter[2][2]=="YRB":
         kubusFormalParameter=draaiDinv(kubusFormalParameter)
         print("1. draai het onderste vlak tegen de klok in.")
         while True:
@@ -3472,7 +3478,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
         print("gevonden in laag "+str(2)+" op positie "+str(6))
         print("RYG staat al goed")
 
-    if kubusFormalParameter[2][6]=="YGR" and kubusFormalParameter[2][2]=="OYB":
+    if kubusFormalParameter[2][6]=="YGR": # and kubusFormalParameter[2][2]=="OYB":
         kubusFormalParameter=draaiD(kubusFormalParameter)
         print("1. draai het onderste vlak met de klok mee.")
         while True:
@@ -3484,8 +3490,9 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             print("ADA 1. draai het voorste vlak tegen de klok in 2. draai het bovenste vlak tegen de klok in. 3. draai het voorste vlak met de klok mee 4. draai het bovenste vlak met de klok mee. ")
             if kubusFormalParameter[2][0]== "GRY":
                 break
-
-    if kubusFormalParameter[2][4]=="YGR" and kubusFormalParameter[2][0]=="BOY":
+            
+    
+    if kubusFormalParameter[2][4]=="YGR":  #and kubusFormalParameter[2][0]=="BOY":
         kubusFormalParameter=draaiD(kubusFormalParameter)
         kubusFormalParameter=draaiD(kubusFormalParameter)
         print("1. draai het onderste vlak 2x met de klok mee.")
@@ -3499,7 +3506,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             if kubusFormalParameter[2][0]== "GRY":
                 break
         
-    if kubusFormalParameter[2][6]=="GRY" and kubusFormalParameter[2][2]=="OYB":
+    if kubusFormalParameter[2][6]=="GRY": #and kubusFormalParameter[2][2]=="OYB":
         kubusFormalParameter=draaiD(kubusFormalParameter)
         print("1. draai het onderste vlak met de klok mee.") 
         while True:
@@ -3512,7 +3519,7 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             if kubusFormalParameter[2][0]== "GRY":
                 break
 
-    if kubusFormalParameter[2][4]=="GRY" and kubusFormalParameter[2][0]=="BOY":
+    if kubusFormalParameter[2][4]=="GRY": #and kubusFormalParameter[2][0]=="BOY":
         kubusFormalParameter=draaiD(kubusFormalParameter)
         kubusFormalParameter=draaiD(kubusFormalParameter)
         print("1. draai het onderste vlak 2x met de klok mee.")
@@ -3526,6 +3533,45 @@ def GeleHoeken_goed_zetten(kubusFormalParameter):
             if kubusFormalParameter[2][0]== "GRY":
                 break
     
+    if kubusFormalParameter[2][2]=="RYG": #and kubusFormalParameter[2][0]=="BOY":
+        kubusFormalParameter=draaiDinv(kubusFormalParameter)
+        print("1. draai het onderste vlak tegen de klok in.")
+        while True:
+            print(kubusFormalParameter[2][0])
+            kubusFormalParameter=draaiFinv(kubusFormalParameter)
+            kubusFormalParameter=draaiUinv(kubusFormalParameter)
+            kubusFormalParameter=draaiF(kubusFormalParameter)
+            kubusFormalParameter=draaiU(kubusFormalParameter)
+            print("ADA 1. draai het voorste vlak tegen de klok in 2. draai het bovenste vlak tegen de klok in. 3. draai het voorste vlak met de klok mee 4. draai het bovenste vlak met de klok mee. ")
+            if kubusFormalParameter[2][0]== "GRY":
+                break
+    
+    if kubusFormalParameter[2][2]=="GRY": #and kubusFormalParameter[2][0]=="BOY":
+        kubusFormalParameter=draaiDinv(kubusFormalParameter)
+        print("1. draai het onderste vlak tegen de klok in.")
+        while True:
+            print(kubusFormalParameter[2][0])
+            kubusFormalParameter=draaiFinv(kubusFormalParameter)
+            kubusFormalParameter=draaiUinv(kubusFormalParameter)
+            kubusFormalParameter=draaiF(kubusFormalParameter)
+            kubusFormalParameter=draaiU(kubusFormalParameter)
+            print("ADA 1. draai het voorste vlak tegen de klok in 2. draai het bovenste vlak tegen de klok in. 3. draai het voorste vlak met de klok mee 4. draai het bovenste vlak met de klok mee. ")
+            if kubusFormalParameter[2][0]== "GRY":
+                break
+            
+    if kubusFormalParameter[2][2]=="YGR": #and kubusFormalParameter[2][0]=="BOY":
+        kubusFormalParameter=draaiDinv(kubusFormalParameter)
+        print("1. draai het onderste vlak tegen de klok in.")
+        while True:
+            print(kubusFormalParameter[2][0])
+            kubusFormalParameter=draaiFinv(kubusFormalParameter)
+            kubusFormalParameter=draaiUinv(kubusFormalParameter)
+            kubusFormalParameter=draaiF(kubusFormalParameter)
+            kubusFormalParameter=draaiU(kubusFormalParameter)
+            print("ADA 1. draai het voorste vlak tegen de klok in 2. draai het bovenste vlak tegen de klok in. 3. draai het voorste vlak met de klok mee 4. draai het bovenste vlak met de klok mee. ")
+            if kubusFormalParameter[2][0]== "GRY":
+                break
+        
     print(kubusFormalParameter)
     return Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter)
 
