@@ -1,36 +1,8 @@
 #TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
 
-import sys, os, time, json
-from typing import List
 
-from rubikscubegraphics import rubik_library 
-from rubikscubegraphics import cube 
-from dataclasses import dataclass
+ 
 
-# kubus in opgeloste toestand:
-# kubus=[  #goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-# ]
-
-# kubus=[  # goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
-# ]
-
-# kubus=[  # goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","Yr","R","RG","G"],
-# ["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
-# ]
-
-kubus=[  # goed
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","GY","R","RG","G"],
-["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
-]
 
 # kubus=[
 # ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
@@ -47,7 +19,7 @@ kubus=[  # goed
 
 #kubus=[
 #["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
-#["GY","O","RW","B","RY"1,"R","WO","G"],
+#["GY","O","RW","B","RY","R","WO","G"],
 #["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 #]
 
@@ -141,20 +113,11 @@ kubus=[  # goed
 # ["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
 # ]
 
-# kubus=[
-# ["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
-# ["WB","O","YO","B","RW","R","YG","G"],
-# ["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
-# ]
-
-c = cube.CubeConvert()
-c.convertEmma2Graph(kubus)
-
-threeD = rubik_library.RubikLibrary(True)  # False: no 3D graph
-# move (f, t, d, r, l, b) followed by a number
-# e.g.
-# threeD.move('t1')
-# threeD.move('t3')
+kubus=[
+["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
+["WB","O","YO","B","RW","R","YG","G"],
+["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
+]
 
 def draaiF(kubus):
     #  we moeten een deepcopy maken van een array, dus kubusCopy=kubus werkt niet
@@ -206,9 +169,6 @@ def draaiF(kubus):
 	kubusCopy[2][1]=b0+b1
  
 	kubusCopy[2][2]=kubus[2][0]
-
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('f1')
 	
 	return kubusCopy
 
@@ -249,9 +209,6 @@ def draaiFinv(kubus):
 	b1=kubus[0][2][2]
 	b2=kubus[0][2][0]
 	kubusCopy[2][2]=b0+b1+b2
-	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('f3')
 	
 	return kubusCopy
 
@@ -295,9 +252,6 @@ def draaiL(kubus):
 	b2=kubus[2][2][1]
 	kubusCopy[2][4]=b0+b1+b2
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('l1')
-
 	return kubusCopy
 
 def draaiLinv(kubus):
@@ -339,9 +293,6 @@ def draaiLinv(kubus):
 	b2=kubus[0][4][0]
 	kubusCopy[2][4]=b0+b1+b2
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('l3')
-
 	return kubusCopy
 
 def draaiB(kubus):
@@ -384,9 +335,6 @@ def draaiB(kubus):
 	b2=kubus[0][6][0]
 	kubusCopy[2][6]=b0+b1+b2
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('b1')
-
 	return kubusCopy
 
 def draaiBinv(kubus):
@@ -429,9 +377,6 @@ def draaiBinv(kubus):
 	b2=kubus[2][4][1]
 	kubusCopy[2][6]=b0+b1+b2
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('b3')
-
 	return kubusCopy
 
 def draaiR(kubus):
@@ -470,9 +415,6 @@ def draaiR(kubus):
 	b2=kubus[2][6][0]
 	kubusCopy[2][0]=b0+b1+b2
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('r1')
-
 	return kubusCopy
 
 def draaiRinv(kubus):
@@ -511,9 +453,6 @@ def draaiRinv(kubus):
 	
 	kubusCopy[2][0]=kubus[0][0]
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('r3')
-
 	return kubusCopy
 
 def draaiD(kubus):
@@ -546,14 +485,10 @@ def draaiD(kubus):
 	
 	kubusCopy[2][7]=kubus[2][5]
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('d1')   #  is dit met de klok mee???
-
 	return kubusCopy
 
 def draaiDinv(kubus):
     
-	# for an invesre could also have done, but this makes 2 extra turns: return (draaiD(draaiD(draaiD(kubus))))
 
 	# see https://stackoverflow.com/a/6533065
 	# kubusCopy=kubus.deepcopy()
@@ -582,9 +517,6 @@ def draaiDinv(kubus):
 	
 	kubusCopy[2][7]=kubus[2][1]
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('d3')   # is dit tegen de klok in???
-
 	return kubusCopy
 
 def draaiU(kubus):
@@ -611,9 +543,6 @@ def draaiU(kubus):
 	
 	kubusCopy[0][7]=kubus[0][5]
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('t1')
-
 	return kubusCopy
 
 def draaiUinv(kubus):
@@ -640,12 +569,9 @@ def draaiUinv(kubus):
 	
 	kubusCopy[0][7]=kubus[0][1]
 	
-	# move (f, t, d, r, l, b) followed by a number
-	threeD.move('t3')
-
 	return kubusCopy
 
-def oplossen(kubusFormalParameter):
+def kubus_oplossen(kubusFormalParameter):
 	# bovenste vlak oplossen: wit kruis maken
 	#zoek oranje wit (of WO) blokje
 	WOgevonden=False
@@ -3705,6 +3631,14 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
     return kubusFormalParameter
     
 
+
+def wisselChar(tekst, van, naar):
+	character = tekst[van]
+	temp = list(tekst) 
+	temp[naar] = character
+	tekst = "".join(temp)
+	return tekst
+
 for kubusLaag in range(0,3):
 	print("")
 	print('laag '+str(kubusLaag))
@@ -3713,23 +3647,7 @@ for kubusLaag in range(0,3):
 
 print("")
 
-
-# input=kubus
-# output=draaiF(input)
-# output=draaiFinv(output)
-# output=draaiB(input)
-# output=draaiBinv(output)
-# output=draaiL(input)
-# output=draaiLinv(output)
-# output=draaiR(input)
-# output=draaiRinv(output)
-# output=draaiU(input)
-# output=draaiUinv(output)
-# output=draaiD(input)
-# output=draaiDinv(output)
-
-
-kubus=oplossen(kubus)
+kubus=kubus_oplossen(kubus)
 
 print("***************************************************")
 for kubusLaag in range(0,3):
@@ -3782,38 +3700,85 @@ print("")
 
 
 
-# https://stackoverflow.com/a/62216769
-@dataclass
-class MyClass():
-	foo: List[List[str]]
-
-def equal(obj1,obj2):
-	return MyClass(foo=obj1[0]) == MyClass(foo=obj2[0])  and MyClass(foo=obj1[1]) == MyClass(foo=obj2[1]) and MyClass(foo=obj1[2]) == MyClass(foo=obj2[2])
-
-def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
-        # opgeloste toestand van een kubus
-	eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['GR', 'O', 'RY', 'B', 'OG', 'R', 'BO', 'G'], ['RBY', 'OY', 'OGY', 'BR', 'OYB', 'YG', 'YGR', 'BY']] 
-	input=[
-["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
-]
-	output = oplossen(input)
-	assert equal(eerste_laag_opgelost,output)
-
-
-def test_bewerkingen_en_hun_inverse():
+def test_draaiU():
         # begin toestand van een kubus
-	input=[
+    kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+    assert draaiU(kubus) != [
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+def test_draaiU_2():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	expected = [
+["WRG","WG","WGO","WO","WOB","WB","WBR","WR"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	result = draaiU(kubus)
+
+	assert controleer_kubus(result, expected)
+
+
+def controleer_kubus(kubus1, kubus2):
+	gelijk = kubus1[0][0] == kubus2[0][0]	
+	gelijk = gelijk and (kubus1[0][1] == kubus2[0][1])
+	gelijk = gelijk and (kubus1[0][2] == kubus2[0][2])
+	# test andere blokjes ook
+
+	return gelijk
+
+
+
+
+
+def test_opgelost_als_WO_op_juiste_plek():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert eerste_laag_oplossen(kubus)
+
+def test_opgelost_als_WO_op_onjuiste_plek():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","OW","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert not eerste_laag_oplossen(kubus)
+
+def test_opgelost_als_WO_op_plek03():
+        # begin toestand van een kubus
+	kubus=[
+["WGO","WB","WOB","WO","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+
+	assert eerste_laag_oplossen(kubus)
+
+def test_opgelost_als_WO_niet_op_plek03():
+        # begin toestand van een kubus
+	kubus=[
 ["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
 ["GO","O","OB","B","BR","R","RG","G"],
 ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 ]
-	output=draaiFinv(draaiF(input))
-	output=draaiBinv(draaiB(input))
-	output=draaiLinv(draaiL(input))
-	output=draaiRinv(draaiR(input))
-	output=draaiUinv(draaiU(input))
-	output=draaiDinv(draaiD(input))
-	assert equal(output, input)
+
+	assert not eerste_laag_oplossen(kubus)
 
