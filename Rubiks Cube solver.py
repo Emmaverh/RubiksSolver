@@ -17,11 +17,11 @@
 #["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
 #]
 
-#kubus=[
-#["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
-#["GY","O","RW","B","RY","R","WO","G"],
-#["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
-#]
+# kubus=[
+# ["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
+# ["GY","O","RW","B","RY","R","WO","G"],
+# ["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
+# ]
 
 # kubus=[
 # ["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
@@ -47,11 +47,11 @@
 #["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
 #]
 
-#kubus=[
-#["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
-#["RB","O","OG","B","BY","R","WO","G"],
-#["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
-#]
+# kubus=[
+# ["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
+# ["RB","O","OG","B","BY","R","WO","G"],
+# ["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
+# ]
 
 #kubus=[
 #["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
@@ -89,11 +89,11 @@
 # ["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
 # ]
 
-# kubus=[
-# ["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
-# ["WB","O","OW","B","YB","R","YO","G"],
-# ["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
-# ]
+kubus=[
+["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
+["WB","O","OW","B","YB","R","YO","G"],
+["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
+]
 
 # kubus=[
 # ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
@@ -101,11 +101,11 @@
 # ["BYR","YR","OYB","YO","RYG","BY","OGY","GY"]	
 # ]
 
-kubus=[
-["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
-["YB","O","BW","B","RG","R","RB","G"],
-["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
-]
+# kubus=[
+# ["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
+# ["YB","O","BW","B","RG","R","RB","G"],
+# ["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
+# ]
 
 # kubus=[
 # ["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
@@ -809,9 +809,11 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				break
 			if kubusLaag==1 and indexPositieInLaag==6:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
-				kubusFormalParameter=draaiB(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiRinv(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				print("1. draai het achterste vlak tegen de klok in 2. draai het bovenste vlak met de klok mee 3. draai het achterste vlak met de klok mee. 4.draai het bovenste vlak tegen de klok in")
+				kubusFormalParameter=draaiUinv(kubusFormalParameter)
+				print("1. draai het bovenste vlak 2x met de klok mee 2. draai het rechter vlak tegen de klok in 3. draai het bovenste vlak 2x tegen de klok in.")
 				break
 			if kubusLaag==2 and indexPositieInLaag==1:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
@@ -3343,6 +3345,44 @@ def GeleHoeken_op_de_goede_plaats_zetten(kubusFormalParameter):
 		kubusFormalParameter=draaiDinv(kubusFormalParameter)
 		kubusFormalParameter=draaiDinv(kubusFormalParameter)
 		print("1. draai het voorste vlak met de klok mee. 2. draai het onderste vlak met de klok mee. 3. draai het achterste vlak met de klok mee. 4. draai het onderste vlak tegen de klok in. 5. draai het voorste vlak tegen de klok in. 6. draai het onderste vlak met de klok mee. 7. draai het achterste vlak tegen de klok in. 8. draai het voorste vlak met de klok mee. 9. draai het onderste vlak met de klok mee. 10. draai het achterste vlak met de klok mee. 11. draai het onderste vlak tegen de klok in. 12. draai het voorste vlak tegen de klok in. 13. draai het onderste vlak met de klok mee. 14. draai het achterste vlak tegen de klok in. 15. draai het onderste vlak 2x tegen de klok in.")
+	if (kubusFormalParameter[2][0]=="OYB" or kubusFormalParameter[2][0]=="BOY" or kubusFormalParameter[2][0]=="YBO") and (kubusFormalParameter[2][2]=="YOG" or kubusFormalParameter[2][2]=="GYO" or kubusFormalParameter[2][2]=="OGY") and (kubusFormalParameter[2][4]=="YGR" or kubusFormalParameter[2][4]=="GRY" or kubusFormalParameter[2][4]=="RYG") and  (kubusFormalParameter[2][6]=="RBY" or kubusFormalParameter[2][6]=="YRB" or kubusFormalParameter[2][6]=="BYR"):
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak tegen de klok in. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak met de klok mee. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak tegen de klok in. 7. draai het onderste vlak met de klok mee. 8. draai het achterste vlak tegen de klok in. 9. draai het voorste vlak met de klok mee. 10. draai het onderste vlak met de klok mee. 11. draai het achterste vlak met de klok mee. 12. draai het onderste vlak tegen de klok in. 13. draai het voorste vlak tegen de klok in. 14. draai het onderste vlak met de klok mee. 15. draai het achterste vlak tegen de klok in. 16. draai het onderste vlak tegen de klok in.")
+	if (kubusFormalParameter[2][0]=="YRB" or kubusFormalParameter[2][0]=="RBY" or kubusFormalParameter[2][0]=="BRY") and (kubusFormalParameter[2][2]=="RYG" or kubusFormalParameter[2][2]=="YGR" or kubusFormalParameter[2][2]=="GRY") and (kubusFormalParameter[2][4]=="OGY" or kubusFormalParameter[2][4]=="YOG" or kubusFormalParameter[2][4]=="GYO") and (kubusFormalParameter[2][6]=="OYB" or kubusFormalParameter[2][6]=="BOY" or kubusFormalParameter[2][6]=="YBO"):
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiF(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiB(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		kubusFormalParameter=draaiFinv(kubusFormalParameter)
+		kubusFormalParameter=draaiD(kubusFormalParameter)
+		kubusFormalParameter=draaiBinv(kubusFormalParameter)
+		kubusFormalParameter=draaiDinv(kubusFormalParameter)
+		print("1. draai het onderste vlak met de klok mee. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak met de klok mee. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak tegen de klok in. 7. draai het onderste vlak met de klok mee. 8. draai het achterste vlak tegen de klok in. 9. draai het onderste vlak 2x met de klok mee 10. draai het voorste vlak met de klok mee. 11. draai het onderste vlak met de klok mee. 12. draai het achterste vlak met de klok mee. 13. draai het onderste vlak tegen de klok in. 14. draai het voorste vlak tegen de klok in. 15. draai het onderste vlak met de klok mee. 16. draai het achterste vlak tegen de klok in. 17. draai het onderste vlak tegen de klok in.")
 	print(kubusFormalParameter)
 	return GeleHoeken_goed_zetten(kubusFormalParameter)
 
