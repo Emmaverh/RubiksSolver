@@ -20,17 +20,17 @@ from dataclasses import dataclass
 # ["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
 # ]
 
-# kubus=[  # goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","Yr","R","RG","G"],
-# ["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
-# ]
-
 kubus=[  # goed
 ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","GY","R","RG","G"],
-["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+["GO","O","OB","B","Yr","R","RG","G"],
+["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
 ]
+
+# kubus=[  # goed
+# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+# ["GO","O","OB","B","GY","R","RG","G"],
+# ["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+# ]
 
 # kubus=[
 # ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
@@ -3799,7 +3799,8 @@ print("")
 
 
 	
-
+#wait
+input()
  
 
 				
@@ -3867,7 +3868,13 @@ def test_een_kubus():
 ["GO","O","OB","B","GY","R","RG","G"],
 ["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
 ]
-	output = eerste_laag_oplossen(input)
-	output = tweede_laag_oplossen(output)
-	output = Geel_kruis_maken(output)
-	assert equal(input,output)
+	kubus=input
+	kubus=eerste_laag_oplossen(kubus)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	kubus=output
+	assert equal(output, input)

@@ -115,7 +115,7 @@ class RubikLibrary:
         permutation=side+aantalperm
 
         self.dcube = self.drive.move(self.dcube, permutation)
-        # playsound('./rubikscubegraphics/draai.mp3')
+        playsound('./rubikscubegraphics/draai.mp3')
         self.viz.render(self.dcube, self.moves_counter)
         self.moves_counter += 1
         # time.sleep(1)

@@ -3694,7 +3694,7 @@ for kubusLaag in range(0,3):
 		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 print("")
 
-
+input()
 
 # for kubusLaag in range(0,2):
 # 	for indexPositieInLaag in range(0,7):
