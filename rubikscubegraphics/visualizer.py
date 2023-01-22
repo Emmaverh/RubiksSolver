@@ -24,7 +24,7 @@ class Viz:
         self.surfaces = []
         self.fig = plt.figure()
         self.ax = self.fig.add_subplot(111, projection='3d')
-        self.ax.view_init(elev=30, azim=45)
+        self.ax.view_init(elev=-135, azim=-135)
         plt.title(label="My Rubik's Cube",
                   loc="center",
                   fontstyle='normal')

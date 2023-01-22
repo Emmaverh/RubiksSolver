@@ -7,145 +7,173 @@ from rubikscubegraphics import rubik_library
 from rubikscubegraphics import cube 
 from dataclasses import dataclass
 
+print("geef een op te lossen kubus nr (tussen 1 en 23, inclusief) (let op ze hebben niet alle een oplossing!)")
+
+kubusnr=input()
+
 # kubus in opgeloste toestand:
-# kubus=[  #goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-# ]
+match kubusnr:
+	case 1:
+		kubus=[  #goed
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+		]
 
-# kubus=[  # goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
-# ]
+	case 2:
+		kubus=[  # goed
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
+		]
 
-kubus=[  # goed
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","Yr","R","RG","G"],
-["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
-]
+	case 3:
+		kubus=[  # goed
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","Yr","R","RG","G"],
+		["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
+		]
 
-# kubus=[  # goed
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","GY","R","RG","G"],
-# ["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
-# ]
+	case 4:
+		kubus=[  # goed
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","GY","R","RG","G"],
+		["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+		]
 
-# kubus=[
-# ["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
-# ["BY","O","GO","B","YO","R", "BR","G"],
-# ["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
-# ]
+	case 5:
+		kubus=[
+		["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
+		["BY","O","GO","B","YO","R", "BR","G"],
+		["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+		]
 
-# begin toestand van een kubus
-#kubus=[
-#["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
-#["GO","O","RW","B","OB","R","GR","G"],
-#["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
-#]
+		# begin toestand van een kubus
+	case 6:
+		kubus=[
+		["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
+		["GO","O","RW","B","OB","R","GR","G"],
+		["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
+		]
 
-#kubus=[
-#["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
-#["GY","O","RW","B","RY"1,"R","WO","G"],
-#["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
-#]
+	case 7:
+		kubus=[
+		["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
+		["GY","O","RW","B","RY","R","WO","G"],
+		["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
+		]
 
-# kubus=[
-# ["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-# ["WB","O","GW","B","GR","R","OB","G"],
-# ["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	#aan deze kubus klopt iets niet.
-# ]
+	case 8:
+		kubus=[
+		["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+		["WB","O","GW","B","GR","R","OB","G"],
+		["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	#aan deze kubus klopt iets niet. Klopt Wel SV
+		]
 
-#kubus=[
-#["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
-#["RW","O","BY","B","YG","R","BW","G"],
-#["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
-#]
+	case 9:
+		kubus=[
+		["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
+		["RW","O","BY","B","YG","R","BW","G"],
+		["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
+		]
 
-#kubus=[
-#["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
-#["WB","O","GY","B","GR","R","GO","G"],
-#["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
-#]
+	case 10:
+		kubus=[
+		["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
+		["WB","O","GY","B","GR","R","GO","G"],
+		["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
+		]
 
-#kubus=[
-#["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
-#["BW","O","GY","B","OB","R","WG","G"],
-#["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
-#]
+	case 11:
+		kubus=[
+		["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+		["BW","O","GY","B","OB","R","WG","G"],
+		["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
+		]
 
-#kubus=[
-#["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
-#["RB","O","OG","B","BY","R","WO","G"],
-#["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
-#]
+	case 12:
+		kubus=[
+		["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
+		["RB","O","OG","B","BY","R","WO","G"],
+		["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
+		]
 
-#kubus=[
-#["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
-#["YB","O","WG","B","RY","R","OB","G"],
-#["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
-#]
+	case 13:
+		kubus=[
+		["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
+		["YB","O","WG","B","RY","R","OB","G"],
+		["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
+		]
 
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
-# ]
+	case 14:
+		kubus=[
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
+		]
 
-# kubus=[
-# ["WGO","WO","YBO","WB","WBR","WR","WRG","WG"],
-# ["BR","O","YG","B","BY","R","YO","G"],
-# ["RYG","RY","YOG","OB","OBW","RG","RBY","GO"]	
-# ]
+	case 15:
+		kubus=[
+		["WGO","WO","YBO","WB","WBR","WR","WRG","WG"],
+		["BR","O","YG","B","BY","R","YO","G"],
+		["RYG","RY","YOG","OB","OBW","RG","RBY","GO"]	
+		]
 
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["OGY","OY","YGR","BY","YBO","RY","YRB","GY"]	
-# ]
+	case 16:
+		kubus=[
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["OGY","OY","YGR","BY","YBO","RY","YRB","GY"]	
+		]
 
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["BOY","YB","OGY","RY","RYG","YO","YRB","GY"]	
-# ]
+	case 17:
+		kubus=[
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["BOY","YB","OGY","RY","RYG","YO","YRB","GY"]	
+		]
 
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
-# ]
+	case 18:
+		kubus=[
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
+		]
 
-# kubus=[
-# ["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
-# ["WB","O","OW","B","YB","R","YO","G"],
-# ["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
-# ]
+	case 19:
+		kubus=[
+		["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
+		["WB","O","OW","B","YB","R","YO","G"],
+		["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
+		]
 
-# kubus=[
-# ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-# ["GO","O","OB","B","BR","R","RG","G"],
-# ["BYR","YR","OYB","YO","RYG","BY","OGY","GY"]	
-# ]
+	case 20:
+		kubus=[
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["BYR","YR","OYB","YO","RYG","BY","OGY","GY"]	
+		]
 
-# kubus=[
-# ["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
-# ["YB","O","BW","B","RG","R","RB","G"],
-# ["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
-# ]
+	case 21:
+		kubus=[
+		["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
+		["YB","O","BW","B","RG","R","RB","G"],
+		["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
+		]
 
-# kubus=[
-# ["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
-# ["RG","O","RY","B","RW","R","WB","G"],
-# ["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
-# ]
+	case 22:
+		kubus=[
+		["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
+		["RG","O","RY","B","RW","R","WB","G"],
+		["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
+		]
 
-# kubus=[
-# ["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
-# ["WB","O","YO","B","RW","R","YG","G"],
-# ["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
-# ]
+	case _:
+		kubus=[
+		["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
+		["WB","O","YO","B","RW","R","YG","G"],
+		["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
+		]
 
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
@@ -3800,7 +3828,7 @@ print("")
 
 	
 #wait
-input()
+input("druk op enter om te stoppen")
  
 
 				
