@@ -178,7 +178,7 @@ match kubusnr:
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
 
-threeD = rubik_library.RubikLibrary(True)  # False: no 3D graph
+threeD = rubik_library.RubikLibrary(False)  # False: no 3D graph
 # move (f, t, d, r, l, b) followed by a number
 # e.g.
 # threeD.move('t1')
