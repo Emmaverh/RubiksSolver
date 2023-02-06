@@ -70,7 +70,7 @@ if script_name in ['pytest', 'py.test']:
 
 #######MAIN###############
 
-print("geef een op te lossen kubus nr (tussen 0 en 23, inclusief) (let op ze hebben niet alle een oplossing!)")
+print("geef een op te lossen kubus nr (tussen 0 en 23, inclusief)")
 kubusnr=int(input())
 # kubusnr=22
 
@@ -215,10 +215,10 @@ elif kubusnr==19:
 		]
 
 elif kubusnr==20:
-		kubus=[ #deze nog doen
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["BYR","YR","OYB","YO","RYG","BY","OGY","GY"]	
+		kubus=[ 
+		["YGR","GO","WGO","YR","GYO","WG","WRG","BY"],
+		["WO","O","RB","B","BO","R","GR","G"],
+		["BYR","WB","BRW","RW","BWO","YO","YBO","GY"]	
 		]
 
 elif kubusnr==21:
