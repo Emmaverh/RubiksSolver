@@ -7,9 +7,12 @@ from rubikscubegraphics import rubik_library
 from rubikscubegraphics import cube 
 from dataclasses import dataclass
 
+showGrafisch = True
+
 print("geef een op te lossen kubus nr (tussen 1 en 23, inclusief) (let op ze hebben niet alle een oplossing!)")
 
 kubusnr=input()
+# kubusnr=22
 
 # kubus in opgeloste toestand:
 match kubusnr:
@@ -178,7 +181,7 @@ match kubusnr:
 c = cube.CubeConvert()
 c.convertEmma2Graph(kubus)
 
-threeD = rubik_library.RubikLibrary(False)  # False: no 3D graph
+threeD = rubik_library.RubikLibrary(showGrafisch)  # False: no 3D graph
 # move (f, t, d, r, l, b) followed by a number
 # e.g.
 # threeD.move('t1')
