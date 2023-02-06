@@ -9,243 +9,7 @@ from dataclasses import dataclass
 
 showGrafisch = True
 
-script_name = os.path.basename(sys.argv[0])
-if script_name in ['pytest', 'py.test']:
-	# https://stackoverflow.com/a/62216769
-	@dataclass
-	class MyClass():
-		foo: List[List[str]]
 
-	def equal(obj1,obj2):
-		return MyClass(foo=obj1[0]) == MyClass(foo=obj2[0])  and MyClass(foo=obj1[1]) == MyClass(foo=obj2[1]) and MyClass(foo=obj1[2]) == MyClass(foo=obj2[2])
-
-	def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
-			# opgeloste toestand van een kubus
-		eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['GR', 'O', 'RY', 'B', 'OG', 'R', 'BO', 'G'], ['RBY', 'OY', 'OGY', 'BR', 'OYB', 'YG', 'YGR', 'BY']] 
-		input=[
-	["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
-	["GO","O","OB","B","BR","R","RG","G"],
-	["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
-	]
-		output = eerste_laag_oplossen(input)
-		assert equal(eerste_laag_opgelost,output)
-
-
-	def test_bewerkingen_en_hun_inverse():
-			# begin toestand van een kubus
-		input=[
-	["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
-	["GO","O","OB","B","BR","R","RG","G"],
-	["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-	]
-		output=draaiFinv(draaiF(input))
-		output=draaiBinv(draaiB(input))
-		output=draaiLinv(draaiL(input))
-		output=draaiRinv(draaiR(input))
-		output=draaiUinv(draaiU(input))
-		output=draaiDinv(draaiD(input))
-		assert equal(output, input)
-
-	def test_een_kubus():
-		input=[  # goed
-	["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-	["GO","O","OB","B","GY","R","RG","G"],
-	["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
-	]
-		output=[
-	["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-	["GO","O","OB","B","BR","R","RG","G"],
-	["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-	]
-		kubus=input
-		kubus=eerste_laag_oplossen(kubus)
-		kubus=tweede_laag_oplossen(kubus)
-		kubus=Geel_kruis_maken(kubus)
-		kubus=Geel_kruis_goedzetten(kubus)
-		kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
-		kubus=GeleHoeken_goed_zetten(kubus)
-		kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
-		assert equal(output, input)
-
-
-#######MAIN###############
-
-print("geef een op te lossen kubus nr (tussen 0 en 23, inclusief)")
-kubusnr=int(input())
-# kubusnr=22
-
-if kubusnr==0:
-   		kubus=[  # al opgelost
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-		]
-
-elif kubusnr==1:
-		kubus=[  #goed
-		["RYG","WO","GYO","WB","BRW","GR","BOY","WR"],
-		["YG","O","GW","B","BO","R","RY","G"],
-		["WOB","GO","YRB","YO","WGO","BY","RGW","RB"]	
-		]
-
-elif kubusnr==2:
-		kubus=[  # goed
-		["GOW","OY","WBR","WR","YBO","BR","YOG","GY"],
-		["YB","O","RG","B","GO","R","OB","G"],
-		["RYG","YR","WRG","GW","WOB","WB","RBY","OW"]	
-		]
-
-elif kubusnr==3:
-		kubus=[  # goed
-		["WOB","OY","YOG","YR","OYB","OB","WGO","GW"],
-		["GY","O","OG","B","WR","R","GR","G"],
-		["BRW","BR","YGR","BW","GWR","WO","BYR","YB"]	
-		]
-
-elif kubusnr==4:
-		kubus=[  # goed
-		["BWO","YG","OWG","BR","RYG","BO","YBO","BW"],
-		["OW","O","YB","B","RG","R","GO","G"],
-		["GWR","WR","GYO","OY","BYR","WG","BRW","YR"]	
-		]
-
-elif kubusnr==5:
-		kubus=[
-		["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
-		["BY","O","GO","B","YO","R", "BR","G"],
-		["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
-		]
-
-elif kubusnr==6:
-		kubus=[
-		["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
-		["GO","O","RW","B","OB","R","GR","G"],
-		["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
-		]
-
-elif kubusnr==7:
-		kubus=[
-		["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
-		["GY","O","RW","B","RY","R","WO","G"],
-		["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
-		]
-
-elif kubusnr==8:
-		kubus=[
-		["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
-		["WB","O","GW","B","GR","R","OB","G"],
-		["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
-		]
-
-elif kubusnr==9:
-		kubus=[
-		["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
-		["RW","O","BY","B","YG","R","BW","G"],
-		["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
-		]
-
-elif kubusnr==10:
-		kubus=[
-		["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
-		["WB","O","GY","B","GR","R","GO","G"],
-		["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
-		]
-
-elif kubusnr==11:
-		kubus=[
-		["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
-		["BW","O","GY","B","OB","R","WG","G"],
-		["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
-		]
-
-elif kubusnr==12:
-		kubus=[
-		["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
-		["RB","O","OG","B","BY","R","WO","G"],
-		["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
-		]
-
-elif kubusnr==13:
-		kubus=[
-		["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
-		["YB","O","WG","B","RY","R","OB","G"],
-		["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
-		]
-
-elif kubusnr==14:
-		kubus=[  # goed
-		["WRG","OW","WOB","BR","RYG","BO","YBO","BW"],
-		["RW","O","GY","B","RG","R","GO","G"],
-		["GYO","YB","WGO","OY","BYR","WG","BRW","YR"]	
-		]
-
-elif kubusnr==15:
-		kubus=[  # goed
-		["BWO","YG","OWG","BR","BYR","RG","YGR","BW"],
-		["OW","O","YB","B","GW","R","OB","G"],
-		["GWR","WR","GYO","OY","RWB","GO","BOY","YR"]	
-		]
-
-elif kubusnr==16:
-		kubus=[  # goed
-		["WRG","OW","WGO","GY","OBW","BO","YBO","BW"],
-		["RW","O","YO","B","RB","R","GO","G"],
-		["GYO","YB","YRB","RG","YGR","WG","BRW","YR"]	
-		]
-
-elif kubusnr==17:
-		kubus=[  # goed
-		["GWR","YG","OWG","BR","BYR","RG","YGR","WO"],
-		["YR","O","YB","B","GW","R","OB","G"],
-		["RWB","WR","GYO","OY","BOY","BW","BWO","OG"]	
-		]
-
-elif kubusnr==18:  
-		kubus=[
-		["OYB","OB","GYO","OY","RBY","BR","BWO","OG"],
-		["RG","O","WO","B","RY","R","WR","G"],
-		["GOW","WB","RGW","WG","YGR","BY","BRW","YG"]	
-		]
-
-elif kubusnr==19:
-		kubus=[
-		["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
-		["WB","O","OW","B","YB","R","YO","G"],
-		["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
-		]
-
-elif kubusnr==20:
-		kubus=[ 
-		["YGR","GO","WGO","YR","GYO","WG","WRG","BY"],
-		["WO","O","RB","B","BO","R","GR","G"],
-		["BYR","WB","BRW","RW","BWO","YO","YBO","GY"]	
-		]
-
-elif kubusnr==21:
-		kubus=[
-		["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
-		["YB","O","BW","B","RG","R","RB","G"],
-		["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
-		]
-
-elif kubusnr==22:
-		kubus=[
-		["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
-		["RG","O","RY","B","RW","R","WB","G"],
-		["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
-		]
-
-else:
-		kubus=[
-		["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
-		["WB","O","YO","B","RW","R","YG","G"],
-		["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
-		]
-
-c = cube.CubeConvert()
-c.convertEmma2Graph(kubus)
-
-threeD = rubik_library.RubikLibrary(showGrafisch)  # False: no 3D graph
 # move (f, t, d, r, l, b) followed by a number
 # e.g.
 # threeD.move('t1')
@@ -3837,47 +3601,231 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
 
     return kubusFormalParameter
     
+script_name = os.path.basename(sys.argv[0])
+if not script_name in ['pytest', 'py.test']:
+	print("geef een op te lossen kubus nr (tussen 0 en 23, inclusief)")
+	kubusnr=int(input())
+#	kubusnr=22
+	if kubusnr==0:
+   		kubus=[  # al opgelost
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+		]
 
-for kubusLaag in range(0,3):
+	elif kubusnr==1:
+		kubus=[  #goed
+		["RYG","WO","GYO","WB","BRW","GR","BOY","WR"],
+		["YG","O","GW","B","BO","R","RY","G"],
+		["WOB","GO","YRB","YO","WGO","BY","RGW","RB"]	
+		]
+
+	elif kubusnr==2:
+		kubus=[  # goed
+		["GOW","OY","WBR","WR","YBO","BR","YOG","GY"],
+		["YB","O","RG","B","GO","R","OB","G"],
+		["RYG","YR","WRG","GW","WOB","WB","RBY","OW"]	
+		]
+
+	elif kubusnr==3:
+		kubus=[  # goed
+		["WOB","OY","YOG","YR","OYB","OB","WGO","GW"],
+		["GY","O","OG","B","WR","R","GR","G"],
+		["BRW","BR","YGR","BW","GWR","WO","BYR","YB"]	
+		]
+
+	elif kubusnr==4:
+		kubus=[  # goed
+		["BWO","YG","OWG","BR","RYG","BO","YBO","BW"],
+		["OW","O","YB","B","RG","R","GO","G"],
+		["GWR","WR","GYO","OY","BYR","WG","BRW","YR"]	
+		]
+
+	elif kubusnr==5:
+		kubus=[
+		["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
+		["BY","O","GO","B","YO","R", "BR","G"],
+		["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
+		]
+
+	elif kubusnr==6:
+		kubus=[
+		["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
+		["GO","O","RW","B","OB","R","GR","G"],
+		["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
+		]
+
+	elif kubusnr==7:
+		kubus=[
+		["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
+		["GY","O","RW","B","RY","R","WO","G"],
+		["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
+		]
+
+	elif kubusnr==8:
+		kubus=[
+		["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
+		["WB","O","GW","B","GR","R","OB","G"],
+		["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
+		]
+
+	elif kubusnr==9:
+		kubus=[
+		["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
+		["RW","O","BY","B","YG","R","BW","G"],
+		["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
+		]
+
+	elif kubusnr==10:
+		kubus=[
+		["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
+		["WB","O","GY","B","GR","R","GO","G"],
+		["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
+		]
+
+	elif kubusnr==11:
+		kubus=[
+		["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
+		["BW","O","GY","B","OB","R","WG","G"],
+		["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
+		]
+
+	elif kubusnr==12:
+		kubus=[
+		["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
+		["RB","O","OG","B","BY","R","WO","G"],
+		["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
+		]
+
+	elif kubusnr==13:
+		kubus=[
+		["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
+		["YB","O","WG","B","RY","R","OB","G"],
+		["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
+		]
+
+	elif kubusnr==14:
+		kubus=[  # goed
+		["WRG","OW","WOB","BR","RYG","BO","YBO","BW"],
+		["RW","O","GY","B","RG","R","GO","G"],
+		["GYO","YB","WGO","OY","BYR","WG","BRW","YR"]	
+		]
+
+	elif kubusnr==15:
+		kubus=[  # goed
+		["BWO","YG","OWG","BR","BYR","RG","YGR","BW"],
+		["OW","O","YB","B","GW","R","OB","G"],
+		["GWR","WR","GYO","OY","RWB","GO","BOY","YR"]	
+		]
+
+	elif kubusnr==16:
+		kubus=[  # goed
+		["WRG","OW","WGO","GY","OBW","BO","YBO","BW"],
+		["RW","O","YO","B","RB","R","GO","G"],
+		["GYO","YB","YRB","RG","YGR","WG","BRW","YR"]	
+		]
+
+	elif kubusnr==17:
+		kubus=[  # goed
+		["GWR","YG","OWG","BR","BYR","RG","YGR","WO"],
+		["YR","O","YB","B","GW","R","OB","G"],
+		["RWB","WR","GYO","OY","BOY","BW","BWO","OG"]	
+		]
+
+	elif kubusnr==18:  
+		kubus=[
+		["OYB","OB","GYO","OY","RBY","BR","BWO","OG"],
+		["RG","O","WO","B","RY","R","WR","G"],
+		["GOW","WB","RGW","WG","YGR","BY","BRW","YG"]	
+		]
+
+	elif kubusnr==19:
+		kubus=[
+		["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
+		["WB","O","OW","B","YB","R","YO","G"],
+		["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
+		]
+
+	elif kubusnr==20:
+		kubus=[ 
+		["YGR","GO","WGO","YR","GYO","WG","WRG","BY"],
+		["WO","O","RB","B","BO","R","GR","G"],
+		["BYR","WB","BRW","RW","BWO","YO","YBO","GY"]	
+		]
+
+	elif kubusnr==21:
+		kubus=[
+		["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
+		["YB","O","BW","B","RG","R","RB","G"],
+		["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
+		]
+
+	elif kubusnr==22:
+		kubus=[
+		["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
+		["RG","O","RY","B","RW","R","WB","G"],
+		["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
+		]
+
+	else:
+		kubus=[
+		["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
+		["WB","O","YO","B","RW","R","YG","G"],
+		["RWB","BR","RBY","OW","WRG","GR","WOB","YR"]	
+		]
+
+	if showGrafisch==True:
+		c = cube.CubeConvert()
+		c.convertEmma2Graph(kubus)
+	threeD = rubik_library.RubikLibrary(showGrafisch)  # False: no 3D graph
+
+
+	for kubusLaag in range(0,3):
+		print("")
+		print('laag '+str(kubusLaag))
+		for indexPositieInLaag in range(0,8):
+			print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
+
 	print("")
-	print('laag '+str(kubusLaag))
-	for indexPositieInLaag in range(0,8):
-		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
-
-print("")
 
 
-# input=kubus
-# output=draaiF(input)
-# output=draaiFinv(output)
-# output=draaiB(input)
-# output=draaiBinv(output)
-# output=draaiL(input)
-# output=draaiLinv(output)
-# output=draaiR(input)
-# output=draaiRinv(output)
-# output=draaiU(input)
-# output=draaiUinv(output)
-# output=draaiD(input)
-# output=draaiDinv(output)
+	# input=kubus
+	# output=draaiF(input)
+	# output=draaiFinv(output)
+	# output=draaiB(input)
+	# output=draaiBinv(output)
+	# output=draaiL(input)
+	# output=draaiLinv(output)
+	# output=draaiR(input)
+	# output=draaiRinv(output)
+	# output=draaiU(input)
+	# output=draaiUinv(output)
+	# output=draaiD(input)
+	# output=draaiDinv(output)
 
 
-kubus=eerste_laag_oplossen(kubus)
-kubus=tweede_laag_oplossen(kubus)
-kubus=Geel_kruis_maken(kubus)
-kubus=Geel_kruis_goedzetten(kubus)
-kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
-kubus=GeleHoeken_goed_zetten(kubus)
-kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	kubus=eerste_laag_oplossen(kubus)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
 
 
-print("***************************************************")
-for kubusLaag in range(0,3):
+	print("***************************************************")
+	for kubusLaag in range(0,3):
+		print("")
+		print('laag '+str(kubusLaag))
+		for indexPositieInLaag in range(0,8):
+			print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
 	print("")
-	print('laag '+str(kubusLaag))
-	for indexPositieInLaag in range(0,8):
-		print (kubus[kubusLaag][indexPositieInLaag], end = ' ')  # print on same line
-print("")
+
+	#wait
+	input("druk op enter om te stoppen")
+
+else:
+	threeD = rubik_library.RubikLibrary(False)  # False: no 3D graph
 
 
 
@@ -3895,8 +3843,7 @@ print("")
 
 
 	
-#wait
-input("druk op enter om te stoppen")
+
  
 
 				
@@ -3922,4 +3869,59 @@ input("druk op enter om te stoppen")
 	# kubus[1,indexPositieInLaag ]=kubus[0,(indexPositieInLaag-2) modulo 7]
 
 
+# https://stackoverflow.com/a/62216769
+@dataclass
+class MyClass():
+	foo: List[List[str]]
+
+def equal(obj1,obj2):
+	return MyClass(foo=obj1[0]) == MyClass(foo=obj2[0])  and MyClass(foo=obj1[1]) == MyClass(foo=obj2[1]) and MyClass(foo=obj1[2]) == MyClass(foo=obj2[2])
+
+def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['GR', 'O', 'RY', 'B', 'OG', 'R', 'BO', 'G'], ['RBY', 'OY', 'OGY', 'BR', 'OYB', 'YG', 'YGR', 'BY']] 
+	input=[
+["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	output = eerste_laag_oplossen(input)
+	assert equal(eerste_laag_opgelost,output)
+
+
+def test_bewerkingen_en_hun_inverse():
+		# begin toestand van een kubus
+	input=[
+["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	output=draaiFinv(draaiF(input))
+	output=draaiBinv(draaiB(input))
+	output=draaiLinv(draaiL(input))
+	output=draaiRinv(draaiR(input))
+	output=draaiUinv(draaiU(input))
+	output=draaiDinv(draaiD(input))
+	assert equal(output, input)
+
+def test_een_kubus():
+	input=[  # goed
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","GY","R","RG","G"],
+["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+]
+	output=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+]
+	kubus=input
+	kubus=eerste_laag_oplossen(kubus)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(output, input)
 
