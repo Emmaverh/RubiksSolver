@@ -172,5 +172,6 @@ class Viz:
         self.txt_moves = self.ax.text2D(0.05, 0.95, f'{aux_text} moves', transform=self.ax.transAxes,
                                         fontstyle='italic', color='grey')
         # Plot figure
-        self.fig.canvas.draw()
+        plt.pause(.000001) # otherwise it would not show on MAC M1
+        self.fig.canvas.draw_idle()
         self.fig.canvas.flush_events()

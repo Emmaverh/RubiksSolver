@@ -1,4 +1,4 @@
-#TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot of grafisch representeren kubus.
+#TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot.
 
 import sys, os, time, json
 from typing import List
@@ -15,36 +15,35 @@ kubusnr=input()
 # kubusnr=22
 
 # kubus in opgeloste toestand:
-match kubusnr:
-	case 1:
+if kubusnr==1:
 		kubus=[  #goed
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
 		]
 
-	case 2:
+elif kubusnr==2:
 		kubus=[  # goed
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
 		]
 
-	case 3:
+elif kubusnr==3:
 		kubus=[  # goed
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","Yr","R","RG","G"],
 		["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
 		]
 
-	case 4:
+elif kubusnr==4:
 		kubus=[  # goed
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","GY","R","RG","G"],
 		["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
 		]
 
-	case 5:
+elif kubusnr==5:
 		kubus=[
 		["YBO","GR","RYG","GW","WBR","OB","GOW","WR"],
 		["BY","O","GO","B","YO","R", "BR","G"],
@@ -52,126 +51,126 @@ match kubusnr:
 		]
 
 		# begin toestand van een kubus
-	case 6:
+elif kubusnr==6:
 		kubus=[
 		["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
 		["GO","O","RW","B","OB","R","GR","G"],
 		["WGO","YR","BYR","WO","RYG","RB","BWO","WG"]	
 		]
 
-	case 7:
+elif kubusnr==7:
 		kubus=[
 		["OGY","WG","GWR","WB","YBO","GO","YRB","RB"],
 		["GY","O","RW","B","RY","R","WO","G"],
 		["BWO","GR","WGO","BY","WBR","YO","RYG","OB"]	
 		]
 
-	case 8:
+elif kubusnr==8:
 		kubus=[
 		["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
 		["WB","O","GW","B","GR","R","OB","G"],
 		["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	#aan deze kubus klopt iets niet. Klopt Wel SV
 		]
 
-	case 9:
+elif kubusnr==9:
 		kubus=[
 		["OBW","BR","GWR","OB","BYR","OY","RYG","RY"],
 		["RW","O","BY","B","YG","R","BW","G"],
 		["RWB","RG","WGO","OG","OGY","OW","YBO","GW"]	
 		]
 
-	case 10:
+elif kubusnr==10:
 		kubus=[
 		["RBY","BO","OBW","GW","BOY","YB","YGR","OY"],
 		["WB","O","GY","B","GR","R","GO","G"],
 		["WGO","YR","WRG","RW","YOG","BR","BRW","WO"]	
 		]
 
-	case 11:
+elif kubusnr==11:
 		kubus=[
 		["BYR","YB","OGY","GO","BOY","RB","WOB","RG"],
 		["BW","O","GY","B","OB","R","WG","G"],
 		["WBR","YO","WGO","WR","GRY","RY","GWR","WO"]	
 		]
 
-	case 12:
+elif kubusnr==12:
 		kubus=[
 		["GYO","RW","RWB","GY","GWR","BW","YGR","OY"],
 		["RB","O","OG","B","BY","R","WO","G"],
 		["BYR","BO","OBW","GR","OWG","RY","OYB","WG"]	
 		]
 
-	case 13:
+elif kubusnr==13:
 		kubus=[
 		["YRB","YG","OWG","WB","YOG","GR","BOY","WR"],
 		["YB","O","WG","B","RY","R","OB","G"],
 		["BWO","OW","WRG","GO","WBR","RB","RYG","YO"]	
 		]
 
-	case 14:
+elif kubusnr==14:
 		kubus=[
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
 		]
 
-	case 15:
+elif kubusnr==15:
 		kubus=[
 		["WGO","WO","YBO","WB","WBR","WR","WRG","WG"],
 		["BR","O","YG","B","BY","R","YO","G"],
 		["RYG","RY","YOG","OB","OBW","RG","RBY","GO"]	
 		]
 
-	case 16:
+elif kubusnr==16:
 		kubus=[
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["OGY","OY","YGR","BY","YBO","RY","YRB","GY"]	
 		]
 
-	case 17:
+elif kubusnr==17:
 		kubus=[
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["BOY","YB","OGY","RY","RYG","YO","YRB","GY"]	
 		]
 
-	case 18:
+elif kubusnr==18:
 		kubus=[
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
 		]
 
-	case 19:
+elif kubusnr==19:
 		kubus=[
 		["RWB","GW","YBO","GR","BYR","GO","WGO","OB"],
 		["WB","O","OW","B","YB","R","YO","G"],
 		["WRG","YR","WOB","BR","YOG","YG","YGR","RW"]	
 		]
 
-	case 20:
+elif kubusnr==20:
 		kubus=[
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["BYR","YR","OYB","YO","RYG","BY","OGY","GY"]	
 		]
 
-	case 21:
+elif kubusnr==21:
 		kubus=[
 		["BYR","YR","YOG","OW","BRW","YG","OWG","GO"],
 		["YB","O","BW","B","RG","R","RB","G"],
 		["WRG","RW","OBW","BO","GRY","YO","YBO","GW"]	
 		]
 
-	case 22:
+elif kubusnr==22:
 		kubus=[
 		["BYR","BY","RYG","OW","RWB","YG","GWR","BO"],
 		["RG","O","RY","B","RW","R","WB","G"],
 		["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
 		]
 
-	case _:
+else:
 		kubus=[
 		["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
 		["WB","O","YO","B","RW","R","YG","G"],
