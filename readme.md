@@ -1,8 +1,7 @@
 # TODO: 
 - CLEAN UP req.txt
 - 1 test with 
-pytest Rubiks\ Cube\ solver.py 
-fails, why?
+pytest Rubiks\ Cube\ solver.py -s
 - make more unittests (regression tests)
 
 ![RubiksCube](https://user-images.githubusercontent.com/39596377/211668102-75bd9dab-7fd2-41c4-a249-9fc90c512aed.png)

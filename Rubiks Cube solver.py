@@ -9,13 +9,79 @@ from dataclasses import dataclass
 
 showGrafisch = True
 
-print("geef een op te lossen kubus nr (tussen 1 en 23, inclusief) (let op ze hebben niet alle een oplossing!)")
+script_name = os.path.basename(sys.argv[0])
+if script_name in ['pytest', 'py.test']:
+	# https://stackoverflow.com/a/62216769
+	@dataclass
+	class MyClass():
+		foo: List[List[str]]
 
-kubusnr=input()
+	def equal(obj1,obj2):
+		return MyClass(foo=obj1[0]) == MyClass(foo=obj2[0])  and MyClass(foo=obj1[1]) == MyClass(foo=obj2[1]) and MyClass(foo=obj1[2]) == MyClass(foo=obj2[2])
+
+	def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
+			# opgeloste toestand van een kubus
+		eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['GR', 'O', 'RY', 'B', 'OG', 'R', 'BO', 'G'], ['RBY', 'OY', 'OGY', 'BR', 'OYB', 'YG', 'YGR', 'BY']] 
+		input=[
+	["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
+	["GO","O","OB","B","BR","R","RG","G"],
+	["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
+	]
+		output = eerste_laag_oplossen(input)
+		assert equal(eerste_laag_opgelost,output)
+
+
+	def test_bewerkingen_en_hun_inverse():
+			# begin toestand van een kubus
+		input=[
+	["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
+	["GO","O","OB","B","BR","R","RG","G"],
+	["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+	]
+		output=draaiFinv(draaiF(input))
+		output=draaiBinv(draaiB(input))
+		output=draaiLinv(draaiL(input))
+		output=draaiRinv(draaiR(input))
+		output=draaiUinv(draaiU(input))
+		output=draaiDinv(draaiD(input))
+		assert equal(output, input)
+
+	def test_een_kubus():
+		input=[  # goed
+	["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+	["GO","O","OB","B","GY","R","RG","G"],
+	["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+	]
+		output=[
+	["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+	["GO","O","OB","B","BR","R","RG","G"],
+	["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+	]
+		kubus=input
+		kubus=eerste_laag_oplossen(kubus)
+		kubus=tweede_laag_oplossen(kubus)
+		kubus=Geel_kruis_maken(kubus)
+		kubus=Geel_kruis_goedzetten(kubus)
+		kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+		kubus=GeleHoeken_goed_zetten(kubus)
+		kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+		assert equal(output, input)
+
+
+#######MAIN###############
+
+print("geef een op te lossen kubus nr (tussen 0 en 23, inclusief) (let op ze hebben niet alle een oplossing!)")
+kubusnr=int(input())
 # kubusnr=22
 
-# kubus in opgeloste toestand:
-if kubusnr==1:
+if kubusnr==0:
+   		kubus=[  # al opgelost
+		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+		["GO","O","OB","B","BR","R","RG","G"],
+		["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+		]
+
+elif kubusnr==1:
 		kubus=[  #goed
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
@@ -50,7 +116,6 @@ elif kubusnr==5:
 		["YOG","YG","BYR","RY","WOB","OW","GWR","BW"]
 		]
 
-		# begin toestand van een kubus
 elif kubusnr==6:
 		kubus=[
 		["WBR","BW","OYB","BY","WRG","GY","GOW","YO"],
@@ -135,7 +200,7 @@ elif kubusnr==17:
 		["BOY","YB","OGY","RY","RYG","YO","YRB","GY"]	
 		]
 
-elif kubusnr==18:
+elif kubusnr==18:  # dit is volgens mij verkeerd???
 		kubus=[
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
@@ -3857,54 +3922,3 @@ input("druk op enter om te stoppen")
 
 
 
-# https://stackoverflow.com/a/62216769
-@dataclass
-class MyClass():
-	foo: List[List[str]]
-
-def equal(obj1,obj2):
-	return MyClass(foo=obj1[0]) == MyClass(foo=obj2[0])  and MyClass(foo=obj1[1]) == MyClass(foo=obj2[1]) and MyClass(foo=obj1[2]) == MyClass(foo=obj2[2])
-
-def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
-        # opgeloste toestand van een kubus
-	eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['GR', 'O', 'RY', 'B', 'OG', 'R', 'BO', 'G'], ['RBY', 'OY', 'OGY', 'BR', 'OYB', 'YG', 'YGR', 'BY']] 
-	input=[
-["WGO","WR","WOB","WB","WBR","YO","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OW","OYB","BY","BYR","RY","RYG","GY"]	
-]
-	output = eerste_laag_oplossen(input)
-	assert equal(eerste_laag_opgelost,output)
-
-
-def test_bewerkingen_en_hun_inverse():
-        # begin toestand van een kubus
-	input=[
-["WGO","WB","WOB","OW","WBR","WR","WRG","WG"],
-["GO","O","OB","B","BR","R","RG","G"],
-["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
-]
-	output=draaiFinv(draaiF(input))
-	output=draaiBinv(draaiB(input))
-	output=draaiLinv(draaiL(input))
-	output=draaiRinv(draaiR(input))
-	output=draaiUinv(draaiU(input))
-	output=draaiDinv(draaiD(input))
-	assert equal(output, input)
-
-def test_een_kubus():
-	input=[  # goed
-["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-["GO","O","OB","B","GY","R","RG","G"],
-["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
-]
-	kubus=input
-	kubus=eerste_laag_oplossen(kubus)
-	kubus=tweede_laag_oplossen(kubus)
-	kubus=Geel_kruis_maken(kubus)
-	kubus=Geel_kruis_goedzetten(kubus)
-	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
-	kubus=GeleHoeken_goed_zetten(kubus)
-	kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
-	kubus=output
-	assert equal(output, input)
