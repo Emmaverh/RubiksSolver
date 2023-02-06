@@ -3603,7 +3603,7 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
     
 script_name = os.path.basename(sys.argv[0])
 if not script_name in ['pytest', 'py.test']:
-	print("geef een op te lossen kubus nr (tussen 0 en 23, inclusief)")
+	print("geef een op te lossen kubus nr (tussen 0 en 24, inclusief)")
 	kubusnr=int(input())
 #	kubusnr=22
 	if kubusnr==0:
@@ -3767,6 +3767,13 @@ if not script_name in ['pytest', 'py.test']:
 		["GOW","BR","OYB","OG","GYO","WG","WOB","YO"]	
 		]
 
+	elif kubusnr==23:
+		kubus=[  # goed
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","GY","R","RG","G"],
+["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+]
+
 	else:
 		kubus=[
 		["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
@@ -3923,5 +3930,5 @@ def test_een_kubus():
 	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
 	kubus=GeleHoeken_goed_zetten(kubus)
 	kubus=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
-	assert equal(output, input)
+	assert equal(output, kubus)
 
