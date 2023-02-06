@@ -83,30 +83,30 @@ if kubusnr==0:
 
 elif kubusnr==1:
 		kubus=[  #goed
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]	
+		["RYG","WO","GYO","WB","BRW","GR","BOY","WR"],
+		["YG","O","GW","B","BO","R","RY","G"],
+		["WOB","GO","YRB","YO","WGO","BY","RGW","RB"]	
 		]
 
 elif kubusnr==2:
 		kubus=[  # goed
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["BYR","YB","YBO","GY","YOG","YO","RYG","RY"]	
+		["GOW","OY","WBR","WR","YBO","BR","YOG","GY"],
+		["YB","O","RG","B","GO","R","OB","G"],
+		["RYG","YR","WRG","GW","WOB","WB","RBY","OW"]	
 		]
 
 elif kubusnr==3:
 		kubus=[  # goed
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","Yr","R","RG","G"],
-		["GRY","YB","YBO","GY","RBY","RB","GYO","YO"]	
+		["WOB","OY","YOG","YR","OYB","OB","WGO","GW"],
+		["GY","O","OG","B","WR","R","GR","G"],
+		["BRW","BR","YGR","BW","GWR","WO","BYR","YB"]	
 		]
 
 elif kubusnr==4:
 		kubus=[  # goed
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","GY","R","RG","G"],
-		["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
+		["BWO","YG","OWG","BR","RYG","BO","YBO","BW"],
+		["OW","O","YB","B","RG","R","GO","G"],
+		["GWR","WR","GYO","OY","BYR","WG","BRW","YR"]	
 		]
 
 elif kubusnr==5:
@@ -134,7 +134,7 @@ elif kubusnr==8:
 		kubus=[
 		["GWR","RY","BWO","RB","OGY","RW","YGR","YO"],
 		["WB","O","GW","B","GR","R","OB","G"],
-		["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	#aan deze kubus klopt iets niet. Klopt Wel SV
+		["YBO","YB","YRB","YG","WGO","GO","RWB","OW"]	
 		]
 
 elif kubusnr==9:
@@ -173,38 +173,38 @@ elif kubusnr==13:
 		]
 
 elif kubusnr==14:
-		kubus=[
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["RYG","OY","YBO","BY","GYO","RY","YRB","GY"]	
+		kubus=[  # goed
+		["WRG","OW","WOB","BR","RYG","BO","YBO","BW"],
+		["RW","O","GY","B","RG","R","GO","G"],
+		["GYO","YB","WGO","OY","BYR","WG","BRW","YR"]	
 		]
 
 elif kubusnr==15:
-		kubus=[
-		["WGO","WO","YBO","WB","WBR","WR","WRG","WG"],
-		["BR","O","YG","B","BY","R","YO","G"],
-		["RYG","RY","YOG","OB","OBW","RG","RBY","GO"]	
+		kubus=[  # goed
+		["BWO","YG","OWG","BR","BYR","RG","YGR","BW"],
+		["OW","O","YB","B","GW","R","OB","G"],
+		["GWR","WR","GYO","OY","RWB","GO","BOY","YR"]	
 		]
 
 elif kubusnr==16:
-		kubus=[
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["OGY","OY","YGR","BY","YBO","RY","YRB","GY"]	
+		kubus=[  # goed
+		["WRG","OW","WGO","GY","OBW","BO","YBO","BW"],
+		["RW","O","YO","B","RB","R","GO","G"],
+		["GYO","YB","YRB","RG","YGR","WG","BRW","YR"]	
 		]
 
 elif kubusnr==17:
-		kubus=[
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["BOY","YB","OGY","RY","RYG","YO","YRB","GY"]	
+		kubus=[  # goed
+		["GWR","YG","OWG","BR","BYR","RG","YGR","WO"],
+		["YR","O","YB","B","GW","R","OB","G"],
+		["RWB","WR","GYO","OY","BOY","BW","BWO","OG"]	
 		]
 
-elif kubusnr==18:  # dit is volgens mij verkeerd???
+elif kubusnr==18:  
 		kubus=[
-		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
-		["GO","O","OB","B","BR","R","RG","G"],
-		["RBY","YR","YGR","YG","YOG","OY","YBO","BYR"]	
+		["OYB","OB","GYO","OY","RBY","BR","BWO","OG"],
+		["RG","O","WO","B","RY","R","WR","G"],
+		["GOW","WB","RGW","WG","YGR","BY","BRW","YG"]	
 		]
 
 elif kubusnr==19:
@@ -215,7 +215,7 @@ elif kubusnr==19:
 		]
 
 elif kubusnr==20:
-		kubus=[
+		kubus=[ #deze nog doen
 		["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 		["GO","O","OB","B","BR","R","RG","G"],
 		["BYR","YR","OYB","YO","RYG","BY","OGY","GY"]	
@@ -868,7 +868,8 @@ def eerste_laag_oplossen(kubusFormalParameter):
 			if kubusLaag==1 and indexPositieInLaag==0:
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				kubusFormalParameter=draaiR(kubusFormalParameter)
-				print("1. draai het bovenste vlak tegen de klok in 2. draai het rechtervlak met de klok mee")
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				print("1. draai het bovenste vlak tegen de klok in 2. draai het rechtervlak met de klok mee 3. draai het bovenste vlak met de klok mee")
 				break
 			if kubusLaag==1 and indexPositieInLaag==2:
 				kubusFormalParameter=draaiF(kubusFormalParameter)
@@ -985,12 +986,12 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				print("1. draai het bovenste vlak 2x met de klok mee 2. draai het rechter vlak tegen de klok in 3. draai het bovenste vlak 2x tegen de klok in.")
 				break
 			if kubusLaag==2 and indexPositieInLaag==1:
-				kubusFormalParameter=draaiU(kubusFormalParameter)
-				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiDinv(kubusFormalParameter)
 				kubusFormalParameter=draaiRinv(kubusFormalParameter)
+				kubusFormalParameter=draaiU(kubusFormalParameter)
+				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				print("1. draai het bovenste vlak 2x met de klok mee 2. draai het rechter vlak tegen de klok in. 3. draai het bovenste vlak 2x tegen de klok in")
+				print("1. draai het onderste vlak tegen de klok in 2. draai het rechter vlak tegen de klok in. 3. draai het bovenste vlak met de klok mee 4. draai het achterste vlak tegen de klok in. 5. draai het bovenste vlak tegen de klok in.")
 				break
 			if kubusLaag==2 and indexPositieInLaag==3:
 				kubusFormalParameter=draaiD(kubusFormalParameter)
@@ -1240,7 +1241,7 @@ def WR_of_RW_oplossen(kubusFormalParameter):
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
 				print("1. draai het achterste vlak 2x tegen de klok in. 2. draai het bovenste vlak met de klok mee 3. draai het rechter vlak tegen de klok in. 4. draai het bovenste vlak tegen de klok in.")
 				break
-			if kubusLaag==1 and indexPositieInLaag==7:
+			if kubusLaag==1 and indexPositieInLaag==6:
 				kubusFormalParameter=draaiBinv(kubusFormalParameter)
 				print("1. draai het achterste vlak tegen de klok in")
 				break
@@ -3532,7 +3533,7 @@ def GeleHoeken_op_de_goede_plaats_zetten(kubusFormalParameter):
 		kubusFormalParameter=draaiBinv(kubusFormalParameter)
 		kubusFormalParameter=draaiDinv(kubusFormalParameter)
 		print("1. draai het onderste vlak tegen de klok in. 2. draai het voorste vlak met de klok mee. 3. draai het onderste vlak met de klok mee. 4. draai het achterste vlak met de klok mee. 5. draai het onderste vlak tegen de klok in. 6. draai het voorste vlak tegen de klok in. 7. draai het onderste vlak met de klok mee. 8. draai het achterste vlak tegen de klok in. 9. draai het voorste vlak met de klok mee. 10. draai het onderste vlak met de klok mee. 11. draai het achterste vlak met de klok mee. 12. draai het onderste vlak tegen de klok in. 13. draai het voorste vlak tegen de klok in. 14. draai het onderste vlak met de klok mee. 15. draai het achterste vlak tegen de klok in. 16. draai het onderste vlak tegen de klok in.")
-	if (kubusFormalParameter[2][0]=="YRB" or kubusFormalParameter[2][0]=="RBY" or kubusFormalParameter[2][0]=="BRY") and (kubusFormalParameter[2][2]=="RYG" or kubusFormalParameter[2][2]=="YGR" or kubusFormalParameter[2][2]=="GRY") and (kubusFormalParameter[2][4]=="OGY" or kubusFormalParameter[2][4]=="YOG" or kubusFormalParameter[2][4]=="GYO") and (kubusFormalParameter[2][6]=="OYB" or kubusFormalParameter[2][6]=="BOY" or kubusFormalParameter[2][6]=="YBO"):
+	if (kubusFormalParameter[2][0]=="YRB" or kubusFormalParameter[2][0]=="RBY" or kubusFormalParameter[2][0]=="BYR") and (kubusFormalParameter[2][2]=="RYG" or kubusFormalParameter[2][2]=="YGR" or kubusFormalParameter[2][2]=="GRY") and (kubusFormalParameter[2][4]=="OGY" or kubusFormalParameter[2][4]=="YOG" or kubusFormalParameter[2][4]=="GYO") and (kubusFormalParameter[2][6]=="OYB" or kubusFormalParameter[2][6]=="BOY" or kubusFormalParameter[2][6]=="YBO"):
 		kubusFormalParameter=draaiD(kubusFormalParameter)
 		kubusFormalParameter=draaiF(kubusFormalParameter)
 		kubusFormalParameter=draaiD(kubusFormalParameter)
