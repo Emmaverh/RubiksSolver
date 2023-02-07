@@ -38,3 +38,7 @@ pytest Rubiks\ Cube\ solver.py -s
 - CLEAN UP req.txt
 - use venv ........ (create better intructions_)
 - make more unittests (regression tests)
+
+# Just for fun demo with my Gan robot:
+
+https://github.com/Emmaverh/RubiksSolver/blob/main/robot%20kan%20bovenste%20laag%20niet%20eenvoudig%20oplossen.mp4
