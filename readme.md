@@ -3,9 +3,7 @@
 A not so efficient Rubik's cube solver.
 
 # Demo run:
-![voorbeeld](./voorbeeld.gif)
-
-![RubiksCube](https://user-images.githubusercontent.com/39596377/211668102-75bd9dab-7fd2-41c4-a249-9fc90c512aed.png)
+![voorbeeld](./voorbeeld4.gif)
 
 # on mac:
 xcode-select --install
@@ -35,9 +33,11 @@ python3 Rubiks\ Cube\ solver.py
 pytest Rubiks\ Cube\ solver.py -s
 
 # Working but TODO: 
-- CLEAN UP req.txt
-- use venv ........ (create better intructions_)
-- make more unittests (regression tests)
+- CLEAN UP a.o. req.txt
+- Refactor,m classes, mopdular
+- Use venv ........ (create better intructions_)
+- TDD: make more unittests (regression tests)
+- Connect with BT GAN robot.
 
 # Just for fun demo with my Gan robot:
 

@@ -1,5 +1,3 @@
-#TODO meer TDD (unit/regressie tests), opruimen, refactoren, connectie met GAN robot.
-
 import sys, os, time, json
 from typing import List
 
