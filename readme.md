@@ -1,9 +1,9 @@
 # Working but TODO: 
 - CLEAN UP req.txt
 - test with 
-- use venv ........ (create better intructions_)
 
 pytest Rubiks\ Cube\ solver.py -s
+- use venv ........ (create better intructions_)
 - make more unittests (regression tests)
 
 # Demo run:
