@@ -735,9 +735,9 @@ def WB_of_BW_oplossen(kubusFormalParameter):
 				break
 			if kubusLaag==1 and indexPositieInLaag==4:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
-				kubusFormalParameter=draaiD(kubusFormalParameter)
+				kubusFormalParameter=draaiB(kubusFormalParameter)
 				kubusFormalParameter=draaiUinv(kubusFormalParameter)
-				print("1. draai het bovenste vlak met de klok mee 2. draai het onderste vlak met de klok mee 3. draai het bovenste vlak tegen de klok in.")
+				print("1. draai het bovenste vlak met de klok mee 2. draai het achterste vlak met de klok mee 3. draai het bovenste vlak tegen de klok in.")
 				break
 			if kubusLaag==1 and indexPositieInLaag==6:
 				kubusFormalParameter=draaiU(kubusFormalParameter)
@@ -3932,13 +3932,13 @@ def test_eerste_laag_opgelost_als_WO_en_WB_en_WR_op_onjuiste_plek():
 ["YO","O","GO","B","WB","R","WO","G"],
 ["GRY","BY","BYR","RY","WOB","RG","OGY","RW"]	
 ]
-	output = eerste_laag_oplossen(input)
-	output=tweede_laag_oplossen(input)
-	output=Geel_kruis_maken(input)
-	output=Geel_kruis_goedzetten(input)
-	output=GeleHoeken_op_de_goede_plaats_zetten(input)
-	output=GeleHoeken_goed_zetten(input)
-	output=Laatste_stap_om_de_kubus_goed_te_zetten(input)
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
 	assert equal(kubus_opgelost,output)
 
 
