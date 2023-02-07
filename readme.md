@@ -1,5 +1,8 @@
 # Working but TODO: 
 - CLEAN UP req.txt
+- run with
+
+python3 Rubiks\ Cube\ solver.py
 - test with 
 
 pytest Rubiks\ Cube\ solver.py -s
