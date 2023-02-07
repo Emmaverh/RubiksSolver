@@ -3601,7 +3601,7 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
     
 script_name = os.path.basename(sys.argv[0])
 if not script_name in ['pytest', 'py.test']:
-	print("geef een op te lossen kubus nr (tussen 0 en 24, inclusief)")
+	print("geef een op te lossen kubus nr (tussen 0 en 25, inclusief)")
 	kubusnr=int(input())
 #	kubusnr=22
 	if kubusnr==0:
@@ -3766,6 +3766,13 @@ if not script_name in ['pytest', 'py.test']:
 		]
 
 	elif kubusnr==23:
+		kubus=[
+		["WGO","GY","YOG","OY","YBO","RG","BWO","OW"],
+		["OG","O","WR","B","YR","R","WG","G"],
+		["RGW","BO","YRB","BR","YGR","BY","BRW","WB"]	
+		]
+
+	elif kubusnr==24:
 		kubus=[  # goed
 ["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
 ["GO","O","OB","B","GY","R","RG","G"],
