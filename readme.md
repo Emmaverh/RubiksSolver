@@ -1,3 +1,7 @@
+"Hey,  but it works."
+
+A not so efficient Rubik's cube solver.
+
 # Demo run:
 ![voorbeeld](./voorbeeld.gif)
 
