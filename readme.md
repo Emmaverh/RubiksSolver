@@ -1,14 +1,3 @@
-# Working but TODO: 
-- CLEAN UP req.txt
-- run with
-
-python3 Rubiks\ Cube\ solver.py
-- test with 
-
-pytest Rubiks\ Cube\ solver.py -s
-- use venv ........ (create better intructions_)
-- make more unittests (regression tests)
-
 # Demo run:
 ![voorbeeld](./voorbeeld.gif)
 
@@ -33,3 +22,15 @@ Import the necessary modules
 pip3 install -r req.txt
 
 pip3 install -U pytest
+
+- run with
+
+python3 Rubiks\ Cube\ solver.py
+- test with 
+
+pytest Rubiks\ Cube\ solver.py -s
+
+# Working but TODO: 
+- CLEAN UP req.txt
+- use venv ........ (create better intructions_)
+- make more unittests (regression tests)
