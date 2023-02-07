@@ -3601,7 +3601,7 @@ def Laatste_stap_om_de_kubus_goed_te_zetten(kubusFormalParameter):
     
 script_name = os.path.basename(sys.argv[0])
 if not script_name in ['pytest', 'py.test']:
-	print("geef een op te lossen kubus nr (tussen 0 en 25, inclusief)")
+	print("geef een op te lossen kubus nr (tussen 0 en 27, inclusief)")
 	kubusnr=int(input())
 #	kubusnr=22
 	if kubusnr==0:
@@ -3779,6 +3779,19 @@ if not script_name in ['pytest', 'py.test']:
 ["GRY","YB","GYO","RB","YRB","YO","BOY","YR"]	
 ]
 
+	elif kubusnr==25:
+		kubus=[
+["WGO","RB","WBR","YG","YGR","WR","WRG","WG"],
+["YO","O","GO","B","OB","R","RG","G"],
+["RBY","RY","GYO","WO","OYB","BW","BWO","BY"]	
+]
+	elif kubusnr==26:
+		kubus=[
+["WGO","RB","WBR","YG","OYB","OB","RGW","WG"],
+["YO","O","GO","B","WB","R","WO","G"],
+["GRY","BY","BYR","RY","WOB","RG","OGY","RW"]
+]
+
 	else:
 		kubus=[
 		["OGY","BY","YGR","WG","BOY","BO","OWG","OG"],
@@ -3899,6 +3912,34 @@ def test_eerste_laag_opgelost_als_WO_op_onjuiste_plek():
 ]
 	output = eerste_laag_oplossen(input)
 	assert equal(eerste_laag_opgelost,output)
+
+def test_eerste_laag_opgelost_als_WO_en_WB_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	eerste_laag_opgelost=[['WGO', 'WO', 'WOB', 'WB', 'WBR', 'WR', 'WRG', 'WG'], ['BY', 'O', 'BO', 'B', 'OY', 'R', 'RG', 'G'], ['GYO', 'GO', 'BOY', 'GY', 'RBY', 'RY', 'YGR', 'RB']] 
+	input=[
+["WGO","RB","WBR","YG","YGR","WR","WRG","WG"],
+["YO","O","GO","B","OB","R","RG","G"],
+["RBY","RY","GYO","WO","OYB","BW","BWO","BY"]	
+]
+	output = eerste_laag_oplossen(input)
+	assert equal(eerste_laag_opgelost,output)
+ 
+def test_eerste_laag_opgelost_als_WO_en_WB_en_WR_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","RB","WBR","YG","OYB","OB","RGW","WG"],
+["YO","O","GO","B","WB","R","WO","G"],
+["GRY","BY","BYR","RY","WOB","RG","OGY","RW"]	
+]
+	output = eerste_laag_oplossen(input)
+	output=tweede_laag_oplossen(input)
+	output=Geel_kruis_maken(input)
+	output=Geel_kruis_goedzetten(input)
+	output=GeleHoeken_op_de_goede_plaats_zetten(input)
+	output=GeleHoeken_goed_zetten(input)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(input)
+	assert equal(kubus_opgelost,output)
 
 
 def test_bewerkingen_en_hun_inverse():
