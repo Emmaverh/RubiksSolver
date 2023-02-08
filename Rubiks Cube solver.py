@@ -3940,6 +3940,227 @@ def test_eerste_laag_opgelost_als_WO_en_WB_en_WR_op_onjuiste_plek():
 	kubus=GeleHoeken_goed_zetten(kubus)
 	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
 	assert equal(kubus_opgelost,output)
+ 
+def test_eerste_laag_opgelost_als_Eerstelaag_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["BOY","BY","BYR","OB","RGW","YR","RWB","OG"],
+["GW","O","OY","B","BW","R","OW","G"],
+["YOG","YG","YGR","BR","GOW","RW","WOB","GR"]	
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_tweede_laag_opgelost_als_GO_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GY","O","OB","B","BR","R","RG","G"],
+["OGY","BY","BYR","OG","YGR","YO","BOY","RY"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_tweede_laag_opgelost_als_GO_en_OB_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GY","O","BY","B","BR","R","RG","G"],
+["GRY","RY","BYR","YO","BOY","BO","YOG","GO"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_tweede_laag_opgelost_als_GO_en_OB_en_BR_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GY","O","BY","B","YO","R","RG","G"],
+["BYR","OB","GYO","RY","BOY","GO","RYG","RB"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_tweede_laag_opgelost_als_Tweedelaag_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GY","O","BY","B","YO","R","GO","G"],
+["OGY","GR","OYB","BR","BYR","RY","RYG","OB"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["RYG","BY","GYO","OY","BOY","RY","BYR","GY"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_en_OY_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["RBY","GY","YGR","BY","GYO","OY","BOY","RY"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_en_OY_en_OYB_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["RBY","YB","YBO","YR","YOG","GY","YGR","OY"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_en_OY_en_OYB_en_BY_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OYB","YR","YOG","GY","YGR","OY","BYR","YB"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_en_OY_en_OYB_en_BY_en_BYR_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["RBY","RY","RYG","YO","OGY","YB","YBO","GY"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_en_OY_en_OYB_en_BY_en_BYR_en_RY_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["OYB","GY","BYR","RY","RYG","YO","OGY","YB"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_OGY_en_OY_en_OYB_en_BY_en_BYR_en_RY_en_RYG_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["GRY","BY","RBY","YR","BOY","YO","OGY","GY"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
+
+def test_Derde_laag_opgelost_als_Derdelaag_op_onjuiste_plek():
+		# opgeloste toestand van een kubus
+	kubus_opgelost=[["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],["GO","O","OB","B","BR","R","RG","G"],["OGY","OY","OYB","BY","BYR","RY","RYG","GY"]]
+	input=[
+["WGO","WO","WOB","WB","WBR","WR","WRG","WG"],
+["GO","O","OB","B","BR","R","RG","G"],
+["RBY","YB","OGY","GY","RYG","OY","YBO","YR"]
+]
+	kubus = eerste_laag_oplossen(input)
+	kubus=tweede_laag_oplossen(kubus)
+	kubus=Geel_kruis_maken(kubus)
+	kubus=Geel_kruis_goedzetten(kubus)
+	kubus=GeleHoeken_op_de_goede_plaats_zetten(kubus)
+	kubus=GeleHoeken_goed_zetten(kubus)
+	output=Laatste_stap_om_de_kubus_goed_te_zetten(kubus)
+	assert equal(kubus_opgelost,output)
 
 
 def test_bewerkingen_en_hun_inverse():
